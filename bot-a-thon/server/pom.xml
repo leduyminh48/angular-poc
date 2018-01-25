@@ -10,12 +10,28 @@
     </parent>
 
     <artifactId>server</artifactId>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
-    <modules>
-        <module>dao</module>
-        <module>rest</module>
-        <module>service</module>
-        <module>webapp</module>
-    </modules>
+    <properties>
+        <java.version>1.8</java.version>
+        <spring.boot.version>1.5.9.RELEASE</spring.boot.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.196</version>
+        </dependency>
+    </dependencies>
 </project>
