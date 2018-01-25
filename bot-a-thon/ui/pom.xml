@@ -10,5 +10,5 @@
     </parent>
 
     <artifactId>ui</artifactId>
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
 </project>
