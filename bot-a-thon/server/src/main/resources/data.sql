@@ -1,2 +1,32 @@
-INSERT INTO category (name) VALUES ('Snacks, Pantry');
-INSERT INTO category (name) VALUES ('Bathroom');
+INSERT INTO user (name, email) VALUES ('Anna Kurmaz', 'anna_kurmaz@epam.com');
+INSERT INTO user (name, email) VALUES ('Duy Minh Le', 'duy_minh_le@epam.com');
+INSERT INTO user (name, email) VALUES ('Oleksandr Borysov', 'oleksandr_borysov@epam.com');
+INSERT INTO user (name, email) VALUES ('Volodymyr Kara', 'volodymyr_kara@epam.com');
+INSERT INTO user (name, email) VALUES ('Viktor Letunovskyi', 'viktor_letunovskyi@epam.com');
+
+INSERT INTO category (id, name) VALUES (1, 'Snacks, Pantry');
+INSERT INTO category (id, name) VALUES (2, 'Bathroom');
+INSERT INTO category (id, name) VALUES (3, 'Office');
+INSERT INTO category (id, name) VALUES (4, 'Coffee/Drinks');
+INSERT INTO category (id, name) VALUES (5, 'Laundry');
+INSERT INTO category (id, name) VALUES (6, 'Pets');
+INSERT INTO category (id, name) VALUES (7, 'Staples');
+INSERT INTO category (id, name) VALUES (8, 'Cleaning');
+
+INSERT INTO product (category_id, name, image_uri) VALUES (1, 'Chips', 'chips.jpg');
+INSERT INTO product (category_id, name, image_uri) VALUES (1, 'Candy', 'candy.jpg');
+INSERT INTO product (category_id, name, image_uri) VALUES (1, 'Chocolate', 'chocolate.jpg');
+INSERT INTO product (category_id, name, image_uri) VALUES (1, 'Nuts', 'nuts.jpg');
+INSERT INTO product (category_id, name, image_uri) VALUES (1, 'Chocolate almonds', 'chocolate_almonds.jpg');
+INSERT INTO product (category_id, name, image_uri) VALUES (1, 'Dried fruit', 'dried-mango.jpg');
+INSERT INTO product (category_id, name, image_uri) VALUES (2, 'Hand soap', null);
+INSERT INTO product (category_id, name, image_uri) VALUES (2, 'Body soap', null);
+INSERT INTO product (category_id, name, image_uri) VALUES (2, 'Toilet paper', null);
+INSERT INTO product (category_id, name, image_uri) VALUES (2, 'Toothpaste', null);
+INSERT INTO product (category_id, name, image_uri) VALUES (2, 'Toothbrush', null);
+INSERT INTO product (category_id, name, image_uri) VALUES (3, 'Notebook', null);
+INSERT INTO product (category_id, name, image_uri) VALUES (3, 'Pen', null);
+INSERT INTO product (category_id, name, image_uri) VALUES (3, 'Scissors', null);
+INSERT INTO product (category_id, name, image_uri) VALUES (4, 'Tassimo pods', null);
+INSERT INTO product (category_id, name, image_uri) VALUES (4, 'Keurig k-cups', null);
+INSERT INTO product (category_id, name, image_uri) VALUES (4, 'Tea', null);
