@@ -1,24 +1,29 @@
 package ca.canadiantire.nine.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
  * @author Victor Letunovsky (@vletunovsky)
  */
 @Entity
-public class Category {
+public class User {
 
     @Id
+    @GeneratedValue
     private Long id;
 
     private String name;
 
-    public Category() {
+    private String email;
+
+    public User() {
     }
 
-    public Category(String name) {
+    public User(String name, String email) {
         this.name = name;
+        this.email = email;
     }
 
     public Long getId() {
@@ -35,5 +40,13 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ca.canadiantire.nine.domain.Category;
-import ca.canadiantire.nine.domain.CategoryRepository;
+import ca.canadiantire.nine.dao.CategoryRepository;
 
 /**
  * @author Victor Letunovsky (@vletunovsky)
