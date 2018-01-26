@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import ca.canadiantire.nine.dto.PhoneOrder;
+import ca.canadiantire.nine.dto.PhoneTemplateDto;
 
 @RestController
-@RequestMapping("/template")
+@RequestMapping("template")
 public class TemplateController {
 
-    @RequestMapping(value = "/phoneOrder", method = RequestMethod.PUT, consumes = "application/json")
+    @RequestMapping(value = "phoneOrder", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.OK)
-    public void putTemplateFromPhone(@RequestBody @Valid final PhoneOrder phoneOrder) {
-        phoneOrder.getClass();
+    public void putTemplateFromPhone(@RequestBody @Valid final PhoneTemplateDto phoneTemplateDto) {
+        phoneTemplateDto.getClass();
     }
 }

@@ -14,22 +14,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import ca.canadiantire.nine.enums.TimeUnits;
 
 @JsonInclude
-public class PhoneOrder {
-    @JsonProperty("userId")
-    private Long userId;
-    @JsonProperty("startDate")
-    private LocalDate startDate;
-    @JsonProperty("timeUnitAmount")
-    private Integer timeUnitAmount;
-    @JsonProperty("timeUnit")
-    private TimeUnits timeUnit;
-    @JsonProperty("barCodes")
-    private Collection<PhoneOrderItem> phoneOrderItemCollection;
+public class PhoneTemplateDto {
 
-    public class PhoneOrderItem {
-        @JsonProperty("barCode")
-        private String barcode;
-        @JsonProperty("quantity")
+    private Long userId;
+
+    private LocalDate startDate;
+
+    private Integer timeUnitAmount;
+
+    private TimeUnits timeUnit;
+
+    private Collection<PhoneTemplateItem> barCodes;
+
+    private class PhoneTemplateItem {
+
+        private String barCode;
+
         private Integer quantity;
     }
 }
