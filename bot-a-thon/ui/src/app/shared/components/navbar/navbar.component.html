@@ -6,11 +6,31 @@
   | 12 MONTH NO FEE NO INTEREST FINANCING*
 </div>
 <div class="ee-navbar">
-  <img class="ee-navbar__icon" src="/assets/svg/CanTire.png"/>
+  <a [routerLink]="['/app/categories']">
+    <img class="ee-navbar__icon" src="/assets/svg/CanTire.png"/>
+  </a>
   <form>
     <input class="search-input"
            type="text"
            placeholder="What are you looking for today?">
   </form>
+  <mat-icon [matMenuTriggerFor]="menuLogin">person</mat-icon>
   <mat-icon>shopping_cart</mat-icon>
 </div>
+<mat-menu #menuLogin="matMenu" [yPosition]="'below'" [overlapTrigger]="false" class="login-form">
+  <form (click)="$event.stopPropagation()">
+    <mat-form-field>
+      <input type="text"
+             matInput
+             #usernameInput
+             placeholder="Login">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password"
+             matInput
+             #passwordInput
+             placeholder="Password">
+    </mat-form-field>
+  </form>
+  <button (click)="login($event)" mat-raised-button color="accent">Login</button>
+</mat-menu>

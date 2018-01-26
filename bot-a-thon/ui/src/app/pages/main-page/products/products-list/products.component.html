@@ -13,8 +13,8 @@
   <mat-list>
     <mat-list-item *ngFor="let product of (products | async)" class="product-wrapper">
       <mat-card>
-        <div class="product">
-          <img [src]="'http://ecsc00a00eec.epam.com/' + product.imageUri" [alt]="product.name" class="product-image">
+        <div class="product" (click)="goToProductDetails(product.id)">
+          <img [src]="'http://ecsc00a00eec.epam.com:8080/' + product.imageUri" [alt]="product.name" class="product-image">
           <div class="product-info">
             <strong class="product-name">${{ product.price.toFixed(2) }}</strong>
             <span>{{ product.name }}</span>
@@ -26,7 +26,7 @@
             <mat-icon>add</mat-icon>
             Add to cart
           </div>
-          <div class="action">
+          <div class="action" (click)="addToCart(product, 1)">
             <mat-icon>add</mat-icon>
             Add to recurring cart
           </div>

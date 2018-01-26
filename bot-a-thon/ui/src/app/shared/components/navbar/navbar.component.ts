@@ -1,4 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { AuthApiService } from '../../services/auth-api.service';
+import { MatMenuTrigger, MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'ee-navbar',
@@ -8,7 +10,25 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class NavbarComponent implements OnInit {
   @Output() public toggleSidenav: EventEmitter<void> = new EventEmitter();
 
-  constructor() {}
+  @ViewChild('usernameInput') usernameInput: ElementRef;
+  @ViewChild('passwordInput') passwordInput: ElementRef;
+  @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
+
+  constructor(private authApiService: AuthApiService, private snackbar: MatSnackBar) {}
 
   public ngOnInit() {}
+
+  login($event) {
+    $event.stopPropagation();
+
+    const username  = this.usernameInput.nativeElement.value;
+    const password  = this.passwordInput.nativeElement.value;
+    return this.authApiService.login({ username, password })
+      .subscribe(() => {
+        this.snackbar.open('Logged in successfully', null, {
+          duration: 2000
+        });
+        this.trigger.closeMenu();
+      })
+  }
 }

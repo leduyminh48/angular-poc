@@ -1,0 +1,29 @@
+<div>
+  <p class="title">
+    <strong>You have added 1 item to your recurring cart</strong>
+  </p>
+  <div class="product">
+    <img [src]="'http://ecsc00a00eec.epam.com:8080/' + data.product.imageUri"
+         [alt]="data.product.name"
+         width="175px"
+         height="175px"
+         class="product-image">
+    <div class="product-info">
+      <p class="product-name">{{ data.product.name }}</p>
+      <p class="product-number">
+        <em>Product #053-0314-8</em>
+      </p>
+      <p>Quantity: {{ data.quantity }}</p>
+    </div>
+  </div>
+  <div class="actions-wrapper">
+    <button mat-raised-button
+            class="continue-to-cart"
+            color="accent">
+      <strong>CONTINUE TO CART</strong>
+    </button>
+    <strong (click)="close()">
+      <em>Continue shopping ></em>
+    </strong>
+  </div>
+</div>

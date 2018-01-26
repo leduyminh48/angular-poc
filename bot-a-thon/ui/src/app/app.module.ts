@@ -26,16 +26,19 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ServicesModule } from './shared/services';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BaseUrlInterceptor } from './core/interceptors/base-url.interceptor';
+import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { InterceptorsModule } from './core/interceptors/interceptors.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     AppRoutingModule,
     SharedModule,
     ServicesModule,
-    HttpClientModule,
+    InterceptorsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     /*StoreRouterConnectingModule,*/
     EffectsModule.forRoot([]),
@@ -48,11 +51,6 @@ import { BaseUrlInterceptor } from './core/interceptors/base-url.interceptor';
      * by `@ngrx/router-store` to include only the desired pieces of the snapshot.
      */
     /*{ provide: RouterStateSerializer, useClass: CustomRouterStateSerializer },*/
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: BaseUrlInterceptor,
-      multi: true,
-    },
   ],
   bootstrap: [AppComponent],
 })
