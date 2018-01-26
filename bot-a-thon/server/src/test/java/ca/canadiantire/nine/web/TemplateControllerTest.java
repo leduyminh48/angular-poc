@@ -6,35 +6,37 @@ package ca.canadiantire.nine.web;
  */
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import org.junit.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.Spy;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import ca.canadiantire.nine.converters.PhoneTemplateToRecurringTemplateConverter;
+import ca.canadiantire.nine.TestConfig;
 
-import static org.mockito.Matchers.anyCollection;
-import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @WebMvcTest(TemplateController.class)
-public class TemplateControllerTest extends AbstractControllerTest{
+@RunWith(SpringRunner.class)
+@Import(TestConfig.class)
+public class TemplateControllerTest {
 
     private static ObjectMapper MAPPER = new ObjectMapper();
     private static final String CREATE_TEMPLATE = "/template/phoneOrder";
+
+    @Autowired
+    private MockMvc mockMvc;
 
     @Test
     public void testPutTemplateFromPhone() throws Exception {

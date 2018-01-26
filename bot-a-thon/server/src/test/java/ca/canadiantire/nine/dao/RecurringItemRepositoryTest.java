@@ -11,10 +11,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import ca.canadiantire.nine.converters.PhoneTemplateToRecurringTemplateConverter;
+import ca.canadiantire.nine.converter.PhoneTemplateToRecurringTemplateConverter;
 import ca.canadiantire.nine.domain.RecurringItem;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
 /**
@@ -27,9 +26,6 @@ public class RecurringItemRepositoryTest {
 
     @Autowired
     private RecurringItemRepository repository;
-
-    @MockBean
-    private PhoneTemplateToRecurringTemplateConverter converter;
 
     @Test
     public void shouldGetRecurringItemsByRecurringTemplateId() {
