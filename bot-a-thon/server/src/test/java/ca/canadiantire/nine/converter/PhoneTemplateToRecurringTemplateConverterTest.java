@@ -13,10 +13,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Import;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import ca.canadiantire.nine.TestConfig;
 import ca.canadiantire.nine.dao.ProductRepository;
 import ca.canadiantire.nine.dao.RecurringItemRepository;
 import ca.canadiantire.nine.dao.UserRepository;
@@ -31,8 +30,8 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
-@Import(TestConfig.class)
 @SpringBootTest
+@DirtiesContext
 public class PhoneTemplateToRecurringTemplateConverterTest {
 
     @Autowired

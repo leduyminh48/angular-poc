@@ -22,14 +22,12 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import ca.canadiantire.nine.TestConfig;
-
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @WebMvcTest(TemplateController.class)
 @RunWith(SpringRunner.class)
-@Import(TestConfig.class)
+@Import(ControllerTestConfig.class)
 public class TemplateControllerTest {
 
     private static ObjectMapper MAPPER = new ObjectMapper();

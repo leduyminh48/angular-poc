@@ -24,6 +24,7 @@ import ca.canadiantire.nine.domain.User;
 
 @Service
 public class EmailService {
+
     @Autowired
     private JavaMailSender mailSender;
 
