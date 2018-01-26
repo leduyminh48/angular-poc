@@ -12,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import ca.canadiantire.nine.enums.TimeUnits;
+
 @Entity
 public class RecurringTemplate {
 
@@ -32,13 +34,13 @@ public class RecurringTemplate {
 
     private Integer timeUnitAmount;
 
-    private String timeUnit;
+    private TimeUnits timeUnit;
 
     public RecurringTemplate() {
     }
 
     public RecurringTemplate(final User user, final String name, final Boolean active, final LocalDate startDate,
-                             final LocalDate endDate, final Integer timeUnitAmount, final String timeUnit) {
+                             final LocalDate endDate, final Integer timeUnitAmount, final TimeUnits timeUnit) {
         this.user = user;
         this.name = name;
         this.active = active;
@@ -104,11 +106,11 @@ public class RecurringTemplate {
         this.timeUnitAmount = timeUnitAmount;
     }
 
-    public String getTimeUnit() {
+    public TimeUnits getTimeUnit() {
         return timeUnit;
     }
 
-    public void setTimeUnit(final String timeUnit) {
+    public void setTimeUnit(final TimeUnits timeUnit) {
         this.timeUnit = timeUnit;
     }
 }
