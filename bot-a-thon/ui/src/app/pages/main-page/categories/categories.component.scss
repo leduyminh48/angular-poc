@@ -1,0 +1,42 @@
+:host {
+  display: block;
+  background-color: #f4f4f4;
+  min-height: 70rem;
+}
+
+.banner {
+  background-color: rgba(0, 0, 0, 0.5);
+  background-image: url('/assets/imgs/grey-bedroom.jpg');
+  background-size: 60rem 60rem;
+  background-position-y: -35rem;
+  height: 10rem;
+  color: white;
+  text-align: center;
+
+  h2 {
+    font-size: 4rem;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+.all-categories {
+  font-size: 1.7rem;
+  text-align: center;
+
+  &-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+.line {
+  width: 15rem;
+  height: 0.1rem;
+  background-color: black;
+}

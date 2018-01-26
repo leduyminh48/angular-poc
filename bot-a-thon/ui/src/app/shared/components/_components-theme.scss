@@ -1,0 +1,7 @@
+@import './navbar/navbar-theme';
+
+// Define a mixin that accepts a theme and outputs the color styles for the component.
+@mixin shared-components-theme($theme) {
+
+  @include navbar-theme($theme);
+}
