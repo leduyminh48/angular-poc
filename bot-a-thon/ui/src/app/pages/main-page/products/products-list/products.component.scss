@@ -1,0 +1,85 @@
+:host {
+  display: block;
+  background-color: #f4f4f4;
+  min-height: 70rem;
+}
+
+.category-name {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  padding: 1rem 3rem;
+  background-color: #454545;
+  color: white;
+}
+
+.products-wrapper {
+  padding: 2.5rem 2rem;
+}
+
+.sort-by-title {
+  margin: 0;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-card {
+  padding-bottom: 0;
+}
+
+.product-image {
+  max-width: 9rem;
+  max-height: 9rem;
+}
+
+.product-wrapper.mat-list-item {
+  height: auto;
+  background-color: white;
+  margin-bottom: 2rem;
+
+  ::ng-deep .mat-list-item-content {
+    display: block;
+    padding: 0;
+  }
+}
+
+.product {
+  display: flex;
+  align-content: flex-start;
+  margin-bottom: 2rem;
+
+  img {
+    margin-right: 2rem;
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &-name {
+    margin-bottom: 1rem;
+  }
+}
+
+.actions {
+  display: flex;
+  border-top: 1px solid #ccc;
+
+  .action {
+    flex-grow: 1;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:first-child {
+      border-right: 1px solid #ccc;
+    }
+
+  }
+
+}

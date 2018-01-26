@@ -1,0 +1,57 @@
+<div *ngIf="product$ | async; let product;" class="product-wrapper">
+  <div class="category-name">
+    < {{ product.category.name }}
+  </div>
+  <div class="product-header">
+    <h2>{{ product.name }}</h2>
+    <div class="product-header-review">
+      <ee-product-rating></ee-product-rating> |
+      <em>Write a review ></em>
+    </div>
+  </div>
+  <div class="product-image-wrapper">
+    <img [src]="'http://ecsc00a00eec.epam.com/' + product.imageUri"
+         [alt]="product.name"
+         height="300px"
+         class="product-image">
+  </div>
+
+  <mat-card>
+    <p><strong>Regular Price: ${{product.price}}</strong></p>
+    <em>Product #053-0313-8</em>
+
+    <hr/>
+
+    <div class="store-wrapper">
+      <div class="store-marker"></div>
+      <div class="store-info">
+        <strong>79 IN STOCK - AISLE 64</strong>
+        <em>ST.JOHN'S HEBRON WAY, NL (as of 8:04 PM)</em>
+
+        <strong><em>Check Other Stores ></em></strong>
+      </div>
+    </div>
+    <div class="input-wrapper">
+      <label>QUANTITY</label>
+      <button mat-icon-button color="primary" (click)="removeQuantity()">
+        <mat-icon>remove</mat-icon>
+      </button>
+      <span>{{ orderQuantity }}</span>
+      <button mat-icon-button color="accent" (click)="addQuantity()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <div class="button-wrapper">
+      <button class="" mat-raised-button color="accent">
+        <mat-icon>add</mat-icon>
+        ADD TO CART
+      </button>
+
+      <button class="" mat-raised-button color="accent">
+        <mat-icon>add</mat-icon>
+        ADD TO RECURRING CART
+      </button>
+    </div>
+
+  </mat-card>
+</div>

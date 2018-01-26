@@ -11,12 +11,16 @@ import { SharedModule } from './shared';
  */
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './shared/store/reducers';
+/*
 import {
   RouterStateSerializer,
   StoreRouterConnectingModule,
 } from '@ngrx/router-store';
+*/
 import { EffectsModule } from '@ngrx/effects';
+/*
 import { CustomRouterStateSerializer } from './shared/store/utils/custom-router-serializer';
+*/
 import { environment } from '../environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ServicesModule } from './shared/services';
@@ -33,7 +37,7 @@ import { BaseUrlInterceptor } from './core/interceptors/base-url.interceptor';
     ServicesModule,
     HttpClientModule,
     StoreModule.forRoot(reducers, { metaReducers }),
-    StoreRouterConnectingModule,
+    /*StoreRouterConnectingModule,*/
     EffectsModule.forRoot([]),
     environment.production ? [] : StoreDevtoolsModule.instrument(),
   ],
@@ -43,7 +47,7 @@ import { BaseUrlInterceptor } from './core/interceptors/base-url.interceptor';
      * A custom RouterStateSerializer is used to parse the `RouterStateSnapshot` provided
      * by `@ngrx/router-store` to include only the desired pieces of the snapshot.
      */
-    { provide: RouterStateSerializer, useClass: CustomRouterStateSerializer },
+    /*{ provide: RouterStateSerializer, useClass: CustomRouterStateSerializer },*/
     {
       provide: HTTP_INTERCEPTORS,
       useClass: BaseUrlInterceptor,

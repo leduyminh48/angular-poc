@@ -14,8 +14,11 @@ const routes: Routes = [
       },
       {
         path: 'categories',
-        pathMatch: 'full',
         loadChildren: './categories/categories.module#CategoriesModule',
+      },
+      {
+        path: 'products',
+        loadChildren: './products/products.module#ProductsModule',
       },
     ],
   },

@@ -40,3 +40,20 @@
   height: 0.1rem;
   background-color: black;
 }
+
+.categories-list {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+
+  li {
+    min-width: 40%;
+    margin: 1rem;
+    text-align: center;
+  }
+
+  a {
+    text-decoration: none;
+    color: #cc0000
+  }
+}

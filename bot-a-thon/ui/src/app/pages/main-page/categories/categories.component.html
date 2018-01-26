@@ -9,8 +9,11 @@
   <div class="line"></div>
 </div>
 
-<mat-list>
-  <mat-list-item *ngFor="let category of categories | async" class="categories">
-    {{ category.name }}
-  </mat-list-item>
-</mat-list>
+<ul class="categories-list">
+  <li *ngFor="let category of categories | async"
+                 class="categories">
+    <a [routerLink]="['/app/products']" [queryParams]="{ category: category.id }">
+      <mat-card>{{ category.name }}</mat-card>
+    </a>
+  </li>
+</ul>

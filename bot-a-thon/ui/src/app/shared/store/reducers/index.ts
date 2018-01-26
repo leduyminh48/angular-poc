@@ -22,7 +22,7 @@ import { storeFreeze } from 'ngrx-store-freeze';
  * our top level state interface is just a map of keys to inner state types.
  */
 export interface State {
-  routerReducer: fromRouter.RouterReducerState<RouterStateUrl>;
+  /*routerReducer: fromRouter.RouterReducerState<RouterStateUrl>;*/
 }
 
 /**
@@ -31,7 +31,7 @@ export interface State {
  * and the current or initial state and return a new immutable state.
  */
 export const reducers: ActionReducerMap<State> = {
-  routerReducer: fromRouter.routerReducer,
+  /*routerReducer: fromRouter.routerReducer,*/
 };
 
 export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
