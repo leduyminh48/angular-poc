@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ca.canadiantire.nine.domain.Product;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -39,5 +40,11 @@ public class ProductRepositoryTest {
     public void testGetProductByCategoryId() {
         Collection<Product> products = productRepository.getProductsByCategoryId(1L);
         assertFalse(products.isEmpty());
+    }
+
+    @Test
+    public void shouldGetProductByBarCode() {
+        Product product = productRepository.getProductByBarCode("1234567890");
+        assertEquals("Chocolate almonds", product.getName());
     }
 }
