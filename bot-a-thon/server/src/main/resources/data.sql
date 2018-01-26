@@ -19,7 +19,7 @@ INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (1, '
 INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (1, 'Chocolate', 7.20, 'chocolate.jpg', '1234567893');
 INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (1, 'Nuts', 3.25, 'nuts.jpg', '1234567894');
 INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (1, 'Dried fruit', 6.50, 'dried_mango.jpg', '1234567895');
-INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (1, 'Coca Cola', 7.50, 'coca_cola.jpg', '5449000008046);
+INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (1, 'Coca Cola', 7.50, 'coca_cola.jpg', '5449000008046');
 INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (1, 'Yogurt Chudo', 5.30, 'chudo.jpg', '4823061320117');
 INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (2, 'Hand soap', 7.30, 'hand_soap.jpg', '1234567895');
 INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (2, 'Body soap', 5.40, 'body_soap.jpg', '1234567896');
