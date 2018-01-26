@@ -5,6 +5,8 @@ package ca.canadiantire.nine.dao;
  * Copyright (c) 2017. Canadian Tire Corporation, Ltd. All rights reserved.
  */
 
+import java.util.Collection;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +15,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import ca.canadiantire.nine.domain.Category;
 import ca.canadiantire.nine.domain.Product;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 
@@ -30,5 +34,11 @@ public class ProductRepositoryTest {
     public void testGetProduct() {
         final Iterable<Product> products = productRepository.findAll();
         assertTrue(products.iterator().next() != null);
+    }
+
+    @Test
+    public void testGetProductByCategoryId() {
+        Collection<Product> products = productRepository.getProductsByCategoryId(1L);
+        assertFalse(products.isEmpty());
     }
 }
