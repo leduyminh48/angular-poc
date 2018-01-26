@@ -45,3 +45,9 @@ INSERT INTO product (category_id, name, price, image_uri) VALUES (7, 'Brita filt
 INSERT INTO product (category_id, name, price, image_uri) VALUES (7, 'Baking soda', 4.50, null);
 INSERT INTO product (category_id, name, price, image_uri) VALUES (8, 'Cleaning products', 1.80, null);
 INSERT INTO product (category_id, name, price, image_uri) VALUES (8, 'Swiffer products', 1.70, null);
+
+INSERT INTO recurring_template (user_id, name) VALUES(1, 'test');
+
+INSERT INTO recurring_item (template_id, product_id, quantity) VALUES(1, 1, 4);
+INSERT INTO recurring_item (template_id, product_id, quantity) VALUES(1, 2, 2);
+INSERT INTO recurring_item (template_id, product_id, quantity) VALUES(1, 3, 1);
