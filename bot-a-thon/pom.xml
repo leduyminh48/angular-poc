@@ -13,7 +13,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>mobile</module>
         <module>server</module>
         <module>ui</module>
     </modules>
