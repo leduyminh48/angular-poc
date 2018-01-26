@@ -5,6 +5,8 @@ package ca.canadiantire.nine.web;
  * Copyright (c) 2018. Canadian Tire Corporation, Ltd. All rights reserved.
  */
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,5 +35,10 @@ public class ProductController {
     @RequestMapping(value = "category/{categoryId}")
     public Iterable<Product> getProductsByCategoryId(@PathVariable("categoryId") Long categoryId) {
         return productService.getProductsByCategoryId(categoryId);
+    }
+
+    @RequestMapping(value = "popular")
+    public Collection<Product> getMostPopularProducts() {
+        return productService.getMostPopularProducts();
     }
 }
