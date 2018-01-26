@@ -1,5 +1,8 @@
 package ca.canadiantire.nine.domain;
 
+import java.math.BigDecimal;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,6 +24,9 @@ public class Product {
     private String name;
 
     private String barCode;
+
+    @Column(scale = 2)
+    private BigDecimal price;
 
     private String imageUri;
 
@@ -71,6 +77,14 @@ public class Product {
 
     public void setBarCode(final String barCode) {
         this.barCode = barCode;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(final BigDecimal price) {
+        this.price = price;
     }
 
     public String getImageUri() {
