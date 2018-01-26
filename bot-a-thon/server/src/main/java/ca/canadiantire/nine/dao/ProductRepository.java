@@ -14,4 +14,6 @@ import ca.canadiantire.nine.domain.Product;
 public interface ProductRepository extends CrudRepository <Product, Long> {
 
     Collection<Product> getProductsByCategoryId(Long categoryId);
+
+    Product getProductByBarCode(String barCode);
 }

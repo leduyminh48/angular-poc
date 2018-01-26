@@ -13,7 +13,7 @@ INSERT INTO category (id, name) VALUES (6, 'Pets');
 INSERT INTO category (id, name) VALUES (7, 'Staples');
 INSERT INTO category (id, name) VALUES (8, 'Cleaning');
 
-INSERT INTO product (category_id, name, price, image_uri) VALUES (1, 'Chocolate almonds', 4.40, 'chocolate_almonds.jpg');
+INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (1, 'Chocolate almonds', 4.40, 'chocolate_almonds.jpg', '1234567890');
 INSERT INTO product (category_id, name, price, image_uri) VALUES (1, 'Chips', 1.53, 'chips.jpg');
 INSERT INTO product (category_id, name, price, image_uri) VALUES (1, 'Candy', 3.40, 'candy.jpg');
 INSERT INTO product (category_id, name, price, image_uri) VALUES (1, 'Chocolate', 7.20, 'chocolate.jpg');
