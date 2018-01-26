@@ -19,4 +19,8 @@ public class CatalogService {
         return categoryRepository.findAll();
     }
 
+    public Category getCategoryById(final Long categoryId) {
+        return categoryRepository.findOne(categoryId);
+    }
+
 }
