@@ -5,6 +5,7 @@ package ca.canadiantire.nine.domain;
  * Copyright (c) 2018. Canadian Tire Corporation, Ltd. All rights reserved.
  */
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,7 +19,7 @@ public class RecurringItem {
     @GeneratedValue
     private Long id;
 
-    @ManyToOne(targetEntity = Order.class)
+    @ManyToOne(targetEntity = Order.class, cascade = CascadeType.PERSIST)
     private RecurringTemplate template;
 
     @OneToOne
