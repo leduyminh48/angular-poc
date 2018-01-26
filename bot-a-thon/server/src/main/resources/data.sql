@@ -18,7 +18,7 @@ INSERT INTO product (category_id, name, price, image_uri) VALUES (1, 'Chips', 1.
 INSERT INTO product (category_id, name, price, image_uri) VALUES (1, 'Candy', 3.40, 'candy.jpg');
 INSERT INTO product (category_id, name, price, image_uri) VALUES (1, 'Chocolate', 7.20, 'chocolate.jpg');
 INSERT INTO product (category_id, name, price, image_uri) VALUES (1, 'Nuts', 3.25, 'nuts.jpg');
-INSERT INTO product (category_id, name, price, image_uri) VALUES (1, 'Dried fruit', 6.50, 'dried-mango.jpg');
+INSERT INTO product (category_id, name, price, image_uri) VALUES (1, 'Dried fruit', 6.50, 'dried_mango.jpg');
 INSERT INTO product (category_id, name, price, image_uri) VALUES (2, 'Hand soap', 7.30, 'hand_soap.jpg');
 INSERT INTO product (category_id, name, price, image_uri) VALUES (2, 'Body soap', 5.40, 'body_soap.jpg');
 INSERT INTO product (category_id, name, price, image_uri) VALUES (2, 'Toilet paper', 4.20, 'toilet_paper.jpg');
@@ -28,7 +28,7 @@ INSERT INTO product (category_id, name, price, image_uri) VALUES (3, 'Notebook',
 INSERT INTO product (category_id, name, price, image_uri) VALUES (3, 'Pen', 0.80, 'pen.jpg');
 INSERT INTO product (category_id, name, price, image_uri) VALUES (3, 'Scissors', 4.40, 'scissors.jpg');
 INSERT INTO product (category_id, name, price, image_uri) VALUES (4, 'Tassimo pods', 3.24, 'tassimo_pods.jpg');
-INSERT INTO product (category_id, name, price, image_uri) VALUES (4, 'Keurig k-cups',8.50, 'keurig_k-cups.jpg');
+INSERT INTO product (category_id, name, price, image_uri) VALUES (4, 'Keurig k-cups',8.50, 'keurig_k_cups.jpg');
 INSERT INTO product (category_id, name, price, image_uri) VALUES (4, 'Tea', 0.70, 'tea.jpg');
 INSERT INTO product (category_id, name, price, image_uri) VALUES (5, 'Laundry detergent', 7.35, null);
 INSERT INTO product (category_id, name, price, image_uri) VALUES (5, 'Bounce', 3.50, null);
