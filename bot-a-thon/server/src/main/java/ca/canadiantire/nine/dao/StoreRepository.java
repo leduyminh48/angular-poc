@@ -9,5 +9,5 @@ import org.springframework.data.repository.CrudRepository;
 
 import ca.canadiantire.nine.domain.User;
 
-public interface StoreRepository extends CrudRepository <User, Long> {
+public interface StoreRepository extends CrudRepository<User, Long> {
 }

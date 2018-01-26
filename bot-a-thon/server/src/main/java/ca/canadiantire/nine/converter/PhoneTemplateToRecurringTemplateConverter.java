@@ -21,7 +21,7 @@ import ca.canadiantire.nine.domain.RecurringTemplate;
 import ca.canadiantire.nine.dto.PhoneTemplateDto;
 import ca.canadiantire.nine.enums.TimeUnits;
 
-@Component
+@Service
 public class PhoneTemplateToRecurringTemplateConverter {
 
     @Autowired

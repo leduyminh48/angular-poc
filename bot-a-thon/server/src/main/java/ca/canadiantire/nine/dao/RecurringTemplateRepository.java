@@ -9,5 +9,5 @@ import org.springframework.data.repository.CrudRepository;
 
 import ca.canadiantire.nine.domain.RecurringTemplate;
 
-public interface RecurringTemplateRepository extends CrudRepository <RecurringTemplate, Long>{
+public interface RecurringTemplateRepository extends CrudRepository<RecurringTemplate, Long>{
 }

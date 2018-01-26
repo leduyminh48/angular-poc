@@ -9,5 +9,8 @@ import org.springframework.data.repository.CrudRepository;
 
 import ca.canadiantire.nine.domain.User;
 
-public interface UserRepository extends CrudRepository <User, Long> {
+public interface UserRepository extends CrudRepository<User, Long> {
+
+    User getUserByEmail(String email);
+
 }

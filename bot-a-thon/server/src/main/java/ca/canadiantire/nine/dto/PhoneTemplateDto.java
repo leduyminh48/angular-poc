@@ -5,13 +5,9 @@ package ca.canadiantire.nine.dto;
  * Copyright (c) 2018. Canadian Tire Corporation, Ltd. All rights reserved.
  */
 
-import java.time.LocalDate;
 import java.util.Collection;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import ca.canadiantire.nine.enums.TimeUnits;
 
 @JsonInclude
 public class PhoneTemplateDto {

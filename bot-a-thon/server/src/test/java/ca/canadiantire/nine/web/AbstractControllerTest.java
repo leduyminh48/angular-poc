@@ -1,10 +1,13 @@
 package ca.canadiantire.nine.web;
 
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
 
-import ca.canadiantire.nine.converter.PhoneTemplateToRecurringTemplateConverter;
 import ca.canadiantire.nine.dao.CategoryRepository;
 import ca.canadiantire.nine.dao.ProductRepository;
 import ca.canadiantire.nine.dao.RecurringItemRepository;
@@ -13,11 +16,12 @@ import ca.canadiantire.nine.dao.UserRepository;
 /**
  * @author Victor Letunovsky
  */
-@Configuration
-public class ControllerTestConfig {
+@WebMvcTest(ProductController.class)
+@RunWith(SpringRunner.class)
+public abstract class AbstractControllerTest {
 
-    @MockBean
-    protected CategoryRepository categoryRepository;
+    @Autowired
+    protected MockMvc mockMvc;
 
     @MockBean
     protected ProductRepository productRepository;
@@ -29,7 +33,7 @@ public class ControllerTestConfig {
     protected RecurringItemRepository recurringItemRepository;
 
     @MockBean
-    protected PhoneTemplateToRecurringTemplateConverter converter;
+    protected CategoryRepository categoryRepository;
 
     @MockBean
     protected JavaMailSender mailSender;

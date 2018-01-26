@@ -9,11 +9,10 @@ package ca.canadiantire.nine.converter;
 import org.assertj.core.util.Lists;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import ca.canadiantire.nine.dao.ProductRepository;
@@ -31,20 +30,19 @@ import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@DirtiesContext
 public class PhoneTemplateToRecurringTemplateConverterTest {
 
-    @Autowired
+    @MockBean
     private UserRepository userRepository;
 
-    @Autowired
+    @MockBean
     private RecurringItemRepository recurringItemRepository;
 
-    @Autowired
+    @MockBean
     private ProductRepository productRepository;
 
-    @InjectMocks
-    private PhoneTemplateToRecurringTemplateConverter testingInstance = new PhoneTemplateToRecurringTemplateConverter();
+    @Autowired
+    private PhoneTemplateToRecurringTemplateConverter testingInstance;
 
     @Test
     public void shouldSaveTemplate() {
@@ -63,6 +61,7 @@ public class PhoneTemplateToRecurringTemplateConverterTest {
         Mockito.verify(recurringItemRepository).save(anyCollectionOf(RecurringItem.class));
     }
 
+    @SuppressWarnings("SameParameterValue")
     private PhoneTemplateDto.PhoneTemplateItem createItem(final String barCode, final int quantity) {
         PhoneTemplateDto.PhoneTemplateItem item = new PhoneTemplateDto.PhoneTemplateItem();
         item.setBarCode(barCode);
