@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ca.canadiantire.nine.domain.Category;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @author Victor Letunovsky
@@ -31,5 +32,13 @@ public class CategoryRepositoryTest {
         final List<Category> categories = new ArrayList<>();
         categoryRepository.findAll().forEach(categories::add);
         assertFalse(categories.isEmpty());
+    }
+
+    @Test
+    public void shouldGetCategoryById() {
+        final Category categoryExpected = categoryRepository.findAll().iterator().next();
+        final Category category = categoryRepository.findOne(categoryExpected.getId());
+
+        assertTrue(category.getName().equals(categoryExpected.getName()));
     }
 }
