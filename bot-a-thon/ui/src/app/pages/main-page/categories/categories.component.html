@@ -1,0 +1,16 @@
+<div class="banner">
+  <h2>Home & essentials</h2>
+  <p>Every thing for you home, school, outdoor, travel, entertainment and seasonal needs</p>
+</div>
+
+<div class="all-categories-wrapper">
+  <div class="line"></div>
+  <p class="all-categories">SHOP ALL CATEGORIES</p>
+  <div class="line"></div>
+</div>
+
+<mat-list>
+  <mat-list-item *ngFor="let category of categories | async" class="categories">
+    {{ category.name }}
+  </mat-list-item>
+</mat-list>

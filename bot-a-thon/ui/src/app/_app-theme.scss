@@ -1,0 +1,15 @@
+@import './shared/components/components-theme';
+
+@mixin ee-app-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .ee-app-background {
+    background: mat-color($background, background);
+  }
+
+  @include shared-components-theme($theme);
+}

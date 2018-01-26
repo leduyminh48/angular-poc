@@ -4,3 +4,4 @@
 
 # Maven target/ directory
 **/target/
+node_modules

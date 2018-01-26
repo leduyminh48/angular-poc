@@ -1,0 +1,11 @@
+:host {
+  flex: 1;
+}
+
+.ee-sidenav {
+  width: 20rem;
+
+  &__container {
+    min-height: 100vh;
+  }
+}
