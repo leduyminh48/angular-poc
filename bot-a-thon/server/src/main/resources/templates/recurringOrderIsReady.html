@@ -37,7 +37,9 @@
                                 <tr>
                                     <td style="font-size: 14px; color: #333333; font-family: Arial;">
                                         <div style="font-size: 14px; font-family: Arial;">
-                                            We've prepared your recurring cart for you!
+                                            We've prepared your recurring cart for you!<br/>
+                                            Pickup is available from <strong th:text="${user.store.name}"></strong> store,
+                                            <span th:text="${user.store.address}"></span>.
                                         </div>
                                     </td>
                                 </tr>

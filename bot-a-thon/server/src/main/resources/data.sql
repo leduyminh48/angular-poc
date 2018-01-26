@@ -1,8 +1,10 @@
-INSERT INTO user (name, email) VALUES ('Anna Kurmaz', 'anna_kurmaz@epam.com');
-INSERT INTO user (name, email) VALUES ('Duy Minh Le', 'duy_minh_le@epam.com');
-INSERT INTO user (name, email) VALUES ('Oleksandr Borysov', 'oleksandr_borysov@epam.com');
-INSERT INTO user (name, email) VALUES ('Volodymyr Kara', 'volodymyr_kara@epam.com');
-INSERT INTO user (name, email) VALUES ('Viktor Letunovskyi', 'viktor_letunovskyi@epam.com');
+INSERT INTO store (name, email, address) VALUES ('MOUNT PEARL, NL', 'anna_kurmaz@epam.com', '26 Merchant Drive Mount Pearl, NL A1N 5J5');
+
+INSERT INTO user (name, email, store_id) VALUES ('Anna Kurmaz', 'anna_kurmaz@epam.com', 1);
+INSERT INTO user (name, email, store_id) VALUES ('Duy Minh Le', 'duy_minh_le@epam.com', 1);
+INSERT INTO user (name, email, store_id) VALUES ('Oleksandr Borysov', 'oleksandr_borysov@epam.com', 1);
+INSERT INTO user (name, email, store_id) VALUES ('Volodymyr Kara', 'volodymyr_kara@epam.com', 1);
+INSERT INTO user (name, email, store_id) VALUES ('Viktor Letunovskyi', 'viktor_letunovskyi@epam.com', 1);
 
 INSERT INTO category (id, name) VALUES (1, 'Snacks, Pantry');
 INSERT INTO category (id, name) VALUES (2, 'Bathroom');
