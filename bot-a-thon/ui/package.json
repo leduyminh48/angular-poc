@@ -9,8 +9,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "precommit": "lint-staged",
-    "prepush": "npm run lint",
+    "precommit-temp": "lint-staged",
+    "postcommit-temp": "git reset",
+    "prepush-temp": "npm run lint",
     "format:client": "prettier --single-quote --trailing-comma es5 --write ./src/**/*.{js,ts,css,sass}"
   },
   "lint-staged": {
