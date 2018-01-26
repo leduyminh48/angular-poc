@@ -17,6 +17,10 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    public Product getProductById(Long id) {
+        return productRepository.findOne(id);
+    }
+
     public Iterable<Product> getAllProducts() {
         return productRepository.findAll();
     }
