@@ -19,7 +19,7 @@ public class RecurringItem {
     @GeneratedValue
     private Long id;
 
-    @ManyToOne(targetEntity = Order.class, cascade = CascadeType.PERSIST)
+    @ManyToOne(targetEntity = RecurringTemplate.class, cascade = CascadeType.PERSIST)
     private RecurringTemplate template;
 
     @OneToOne
