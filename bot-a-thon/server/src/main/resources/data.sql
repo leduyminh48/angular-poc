@@ -19,9 +19,9 @@ INSERT INTO product (category_id, name, image_uri) VALUES (1, 'Chocolate', 'choc
 INSERT INTO product (category_id, name, image_uri) VALUES (1, 'Nuts', 'nuts.jpg');
 INSERT INTO product (category_id, name, image_uri) VALUES (1, 'Chocolate almonds', 'chocolate_almonds.jpg');
 INSERT INTO product (category_id, name, image_uri) VALUES (1, 'Dried fruit', 'dried-mango.jpg');
-INSERT INTO product (category_id, name, image_uri) VALUES (2, 'Hand soap', null);
-INSERT INTO product (category_id, name, image_uri) VALUES (2, 'Body soap', null);
-INSERT INTO product (category_id, name, image_uri) VALUES (2, 'Toilet paper', null);
+INSERT INTO product (category_id, name, image_uri) VALUES (2, 'Hand soap', 'hand_soap.jpg');
+INSERT INTO product (category_id, name, image_uri) VALUES (2, 'Body soap', 'body_soap.jpg');
+INSERT INTO product (category_id, name, image_uri) VALUES (2, 'Toilet paper', 'toilet_paper.jpg');
 INSERT INTO product (category_id, name, image_uri) VALUES (2, 'Toothpaste', null);
 INSERT INTO product (category_id, name, image_uri) VALUES (2, 'Toothbrush', null);
 INSERT INTO product (category_id, name, image_uri) VALUES (3, 'Notebook', null);
