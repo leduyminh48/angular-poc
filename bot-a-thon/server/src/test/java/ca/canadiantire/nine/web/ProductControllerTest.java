@@ -1,7 +1,6 @@
 package ca.canadiantire.nine.web;
 
 import org.junit.Test;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 
 import ca.canadiantire.nine.domain.Product;
@@ -14,8 +13,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * @author Victor Letunovsky
  */
-
-@WebMvcTest(ProductController.class)
 public class ProductControllerTest extends AbstractControllerTest {
 
     @Test

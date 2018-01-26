@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import ca.canadiantire.nine.converters.PhoneTemplateToRecurringTemplateConverter;
+import ca.canadiantire.nine.converter.PhoneTemplateToRecurringTemplateConverter;
 import ca.canadiantire.nine.dto.PhoneTemplateDto;
 import ca.canadiantire.nine.service.ProductService;
 

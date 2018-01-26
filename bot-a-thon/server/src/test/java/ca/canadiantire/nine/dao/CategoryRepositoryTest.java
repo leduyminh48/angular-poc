@@ -4,12 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 import ca.canadiantire.nine.domain.Category;
 
@@ -19,10 +14,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * @author Victor Letunovsky
  */
-@DataJpaTest
-@Transactional(propagation = Propagation.NOT_SUPPORTED)
-@RunWith(SpringRunner.class)
-public class CategoryRepositoryTest {
+public class CategoryRepositoryTest extends AbstractRepositoryTest {
 
     @Autowired
     private CategoryRepository categoryRepository;

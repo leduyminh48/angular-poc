@@ -7,7 +7,7 @@ package ca.canadiantire.nine.dao;
 
 import org.springframework.data.repository.CrudRepository;
 
-import ca.canadiantire.nine.domain.RecurringTemplate;
+import ca.canadiantire.nine.domain.User;
 
-public interface RecurringTemplateRepository extends CrudRepository<RecurringTemplate, Long>{
+public interface StoreRepository extends CrudRepository<User, Long> {
 }

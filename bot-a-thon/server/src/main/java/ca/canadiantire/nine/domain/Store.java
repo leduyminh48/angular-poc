@@ -3,13 +3,9 @@ package ca.canadiantire.nine.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
-/**
- * @author Victor Letunovsky (@vletunovsky)
- */
 @Entity
-public class User {
+public class Store {
 
     @Id
     @GeneratedValue
@@ -19,15 +15,13 @@ public class User {
 
     private String email;
 
-    @ManyToOne(targetEntity = Store.class)
-    private Store store;
+    private String address;
 
-    public User() {
+    public Store() {
     }
 
-    public User(String name, String email) {
+    public Store(String name) {
         this.name = name;
-        this.email = email;
     }
 
     public Long getId() {
@@ -54,11 +48,11 @@ public class User {
         this.email = email;
     }
 
-    public Store getStore() {
-        return store;
+    public String getAddress() {
+        return address;
     }
 
-    public void setStore(final Store store) {
-        this.store = store;
+    public void setAddress(final String address) {
+        this.address = address;
     }
 }

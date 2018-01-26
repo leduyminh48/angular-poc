@@ -11,7 +11,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import ca.canadiantire.nine.domain.Product;
 
-public interface ProductRepository extends CrudRepository <Product, Long> {
+public interface ProductRepository extends CrudRepository<Product, Long> {
 
     Collection<Product> getProductsByCategoryId(Long categoryId);
 

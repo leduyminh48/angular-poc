@@ -1,4 +1,4 @@
-package ca.canadiantire.nine.converters;
+package ca.canadiantire.nine.converter;
 
 /*
  * Canadian Tire Corporation, Ltd. Do not reproduce without permission in writing.
@@ -9,9 +9,9 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import ca.canadiantire.nine.dao.ProductRepository;
 import ca.canadiantire.nine.dao.RecurringItemRepository;
@@ -21,7 +21,7 @@ import ca.canadiantire.nine.domain.RecurringTemplate;
 import ca.canadiantire.nine.dto.PhoneTemplateDto;
 import ca.canadiantire.nine.enums.TimeUnits;
 
-@Resource
+@Service
 public class PhoneTemplateToRecurringTemplateConverter {
 
     @Autowired
