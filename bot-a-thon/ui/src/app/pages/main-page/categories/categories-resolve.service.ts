@@ -12,19 +12,16 @@ export interface ICategory {
 
 @Injectable()
 export class CategoriesResolveService implements Resolve<ICategory[]> {
-
-  constructor(private httpClient: HttpClient) {
-  }
+  constructor(private httpClient: HttpClient) {}
 
   resolve(): Observable<ICategory[]> {
-    return this.httpClient
-      .get<ICategory[]>('/catalog/categories')
-      .catch(() => Observable.of([
+    return this.httpClient.get<ICategory[]>('/catalog/categories').catch(() =>
+      Observable.of([
         {
           id: '1',
           name: '1',
-        }
-      ]));
+        },
+      ])
+    );
   }
-
 }

@@ -6,11 +6,7 @@ import { CategoriesComponent } from './categories.component';
 import { SharedModule } from '../../../shared';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    CategoriesRoutingModule,
-    SharedModule
-  ],
-  declarations: [CategoriesComponent]
+  imports: [CommonModule, CategoriesRoutingModule, SharedModule],
+  declarations: [CategoriesComponent],
 })
-export class CategoriesModule { }
+export class CategoriesModule {}

@@ -7,15 +7,14 @@ import 'rxjs/add/operator/map';
 @Component({
   selector: 'ee-categories',
   templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.scss']
+  styleUrls: ['./categories.component.scss'],
 })
 export class CategoriesComponent implements OnInit {
   categories: Observable<ICategory[]>;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.categories = this.route.data.map(data => data.categories);
   }
-
 }
