@@ -2,7 +2,7 @@ package ca.canadiantire.nine.dao;
 
 /*
  * Canadian Tire Corporation, Ltd. Do not reproduce without permission in writing.
- * Copyright (c) 2017. Canadian Tire Corporation, Ltd. All rights reserved.
+ * Copyright (c) 2018. Canadian Tire Corporation, Ltd. All rights reserved.
  */
 
 import java.util.Collection;
@@ -15,7 +15,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import ca.canadiantire.nine.domain.Category;
 import ca.canadiantire.nine.domain.Product;
 
 import static org.junit.Assert.assertFalse;
