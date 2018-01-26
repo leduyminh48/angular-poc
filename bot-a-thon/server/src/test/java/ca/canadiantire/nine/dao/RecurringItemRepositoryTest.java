@@ -6,10 +6,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import ca.canadiantire.nine.converters.PhoneTemplateToRecurringTemplateConverter;
 import ca.canadiantire.nine.domain.RecurringItem;
 
 import static org.junit.Assert.assertFalse;
@@ -25,6 +27,9 @@ public class RecurringItemRepositoryTest {
 
     @Autowired
     private RecurringItemRepository repository;
+
+    @MockBean
+    private PhoneTemplateToRecurringTemplateConverter converter;
 
     @Test
     public void shouldGetRecurringItemsByRecurringTemplateId() {
