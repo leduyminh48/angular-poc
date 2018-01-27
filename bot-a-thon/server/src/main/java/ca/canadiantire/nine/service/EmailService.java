@@ -39,6 +39,8 @@ public class EmailService {
     private String LOGO_PATH;
     @Value("${email.img.footer}")
     private String FOOTER_PATH;
+    @Value("${email.img.banner}")
+    private String BANNER_PATH;
 
     public void sendRepeatableItemsOrderedNotification(final String recipient, final User user,
                                                        final List<Product> productsToOfferRecurring) {
@@ -63,6 +65,7 @@ public class EmailService {
             messageHelper.setText(content, true);
             messageHelper.addAttachment("logo.jpg", new ClassPathResource(LOGO_PATH));
             messageHelper.addAttachment("footer.jpg", new ClassPathResource(FOOTER_PATH));
+            messageHelper.addAttachment("banner.jpg", new ClassPathResource(BANNER_PATH));
         };
     }
 
