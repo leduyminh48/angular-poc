@@ -6,7 +6,7 @@ import 'rxjs/add/operator/share';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import { MatDialog } from '@angular/material';
-import { CartComponent } from '../cart/cart.component';
+import { CartPopupComponent } from '../cart-popup/cart-popup.component';
 import { CartManagerService } from '../../../../shared/services/cart-manager.service';
 
 @Component({

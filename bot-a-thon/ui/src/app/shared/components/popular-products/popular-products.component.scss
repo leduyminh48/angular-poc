@@ -1,0 +1,33 @@
+.title {
+  font-size: 2rem;
+  padding: 1rem;
+
+}
+.products-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+
+  .product {
+    margin: 1rem;
+
+    img {
+      width: 20rem;
+      height: 20rem;
+    }
+
+    &-info {
+      height: 30rem;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    min-height: 80px;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+
+}

@@ -1,0 +1,22 @@
+<h4 class="title">Most popular products at CTGO:</h4>
+
+<div class="products-wrapper">
+  <mat-card class="product" *ngFor="let product of (products$ | async)">
+    <div class="product-info" (click)="goToProductDetails(product.id)">
+      <img [src]="'http://ecsc00a00eec.epam.com:8080/' + product.imageUri" [alt]="product.name">
+      <p>{{ product.name }}</p>
+      <p><strong>${{ product.price }}</strong></p>
+    </div>
+
+    <div class="buttons">
+      <button mat-raised-button color="accent">
+        <mat-icon>add</mat-icon>
+        ADD TO CART
+      </button>
+      <button mat-raised-button color="accent" (click)="addToCart(product)">
+        <mat-icon>add</mat-icon>
+        ADD TO RECURRING CART
+      </button>
+    </div>
+  </mat-card>
+</div>

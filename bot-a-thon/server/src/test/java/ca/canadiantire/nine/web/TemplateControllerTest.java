@@ -16,6 +16,11 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import ca.canadiantire.nine.domain.RecurringTemplate;
+import ca.canadiantire.nine.domain.User;
+
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
@@ -27,7 +32,7 @@ public class TemplateControllerTest extends AbstractControllerTest {
 
     @Test
     public void testPutTemplateFromPhone() throws Exception {
-
+        when(userRepository.findOne(any())).thenReturn(new User());
         RequestBuilder requestBuilder = MockMvcRequestBuilders.put(CREATE_TEMPLATE_MOBILE)
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -37,7 +42,7 @@ public class TemplateControllerTest extends AbstractControllerTest {
 
     @Test
     public void testPutTemplateFromWeb() throws Exception {
-
+        when(userRepository.findOne(any())).thenReturn(new User());
         RequestBuilder requestBuilder = MockMvcRequestBuilders.post(CREATE_TEMPLATE_WEB)
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)

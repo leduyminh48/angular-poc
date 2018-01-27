@@ -1,6 +1,7 @@
 import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { AuthApiService } from '../../services/auth-api.service';
 import { MatMenuTrigger, MatSnackBar } from '@angular/material';
+import { CartManagerService } from '../../services/cart-manager.service';
 
 @Component({
   selector: 'ee-navbar',
@@ -14,9 +15,18 @@ export class NavbarComponent implements OnInit {
   @ViewChild('passwordInput') passwordInput: ElementRef;
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
-  constructor(private authApiService: AuthApiService, private snackbar: MatSnackBar) {}
+  constructor(
+    private authApiService: AuthApiService,
+    private snackbar: MatSnackBar,
+    private cartManager: CartManagerService,
+  ) {}
 
   public ngOnInit() {}
+
+  get cartLength() {
+    return this.cartManager.getLength();
+  }
+
 
   login($event) {
     $event.stopPropagation();
