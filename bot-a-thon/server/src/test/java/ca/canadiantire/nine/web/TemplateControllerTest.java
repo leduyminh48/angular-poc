@@ -42,7 +42,7 @@ public class TemplateControllerTest extends AbstractControllerTest {
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(MAPPER.writeValueAsBytes(createWebOrder()));
-        mockMvc.perform(requestBuilder).andExpect(status().isOk());
+        mockMvc.perform(requestBuilder).andExpect(status().is2xxSuccessful());
     }
 
     private ObjectNode createPhoneOrder() {

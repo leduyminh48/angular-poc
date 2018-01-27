@@ -36,11 +36,13 @@ public class RecurringTemplate {
 
     private TimeUnits timeUnit;
 
+    private Integer discount;
+
     public RecurringTemplate() {
     }
 
     public RecurringTemplate(final User user, final String name, final Boolean active, final LocalDate startDate,
-                             final LocalDate endDate, final Integer timeUnitAmount, final TimeUnits timeUnit) {
+            final LocalDate endDate, final Integer timeUnitAmount, final TimeUnits timeUnit, Integer discount) {
         this.user = user;
         this.name = name;
         this.active = active;
@@ -48,6 +50,7 @@ public class RecurringTemplate {
         this.endDate = endDate;
         this.timeUnitAmount = timeUnitAmount;
         this.timeUnit = timeUnit;
+        this.discount = discount;
     }
 
     public Long getId() {
@@ -112,5 +115,13 @@ public class RecurringTemplate {
 
     public void setTimeUnit(final TimeUnits timeUnit) {
         this.timeUnit = timeUnit;
+    }
+
+    public Integer getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(final Integer discount) {
+        this.discount = discount;
     }
 }
