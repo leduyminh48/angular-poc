@@ -54,7 +54,7 @@
                                                     <th:block
                                                             th:each="i: ${#numbers.sequence(0, 3)}">
                                                         <td><img src="${products.get(i).imageUri}"
-                                                                 th:src="|http://ecsc00a00eec.epam.com/${products.get(i).imageUri}|"
+                                                                 th:src="|http://${host}:${port}/${products.get(i).imageUri}|"
                                                                  width="100" height="100"/>
                                                         </td>
                                                     </th:block>
@@ -63,7 +63,7 @@
                                                     <th:block
                                                             th:each="i: ${#numbers.sequence(0, productCount - 1)}">
                                                         <td><img src="${products.get(i).imageUri}"
-                                                                 th:src="|http://ecsc00a00eec.epam.com/${products.get(i).imageUri}|"
+                                                                 th:src="|http://${host}:${port}/${products.get(i).imageUri}|"
                                                                  width="100" height="100"/>
                                                         </td>
                                                     </th:block>
@@ -106,6 +106,11 @@
                         </td>
                     </tr>
                 </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div th:replace="fragments/banner :: banner">...</div>
             </td>
         </tr>
         <tr>
