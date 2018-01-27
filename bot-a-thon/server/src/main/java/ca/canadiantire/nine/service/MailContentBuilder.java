@@ -14,8 +14,10 @@ import org.thymeleaf.context.Context;
 
 import ca.canadiantire.nine.dao.RecurringItemRepository;
 import ca.canadiantire.nine.domain.Product;
+import ca.canadiantire.nine.domain.RecurringItem;
 import ca.canadiantire.nine.domain.RecurringTemplate;
 import ca.canadiantire.nine.domain.User;
+import ca.canadiantire.nine.util.NetworkUtil;
 
 @Service
 public class MailContentBuilder {
@@ -32,6 +34,8 @@ public class MailContentBuilder {
         context.setVariable("recipient", recipient);
         context.setVariable("products", productsToOfferRecurring);
         context.setVariable("user", user);
+        context.setVariable("host", NetworkUtil.getHostname());
+        context.setVariable("port", NetworkUtil.getPort());
         return templateEngine.process("repeatableItemsOrderedPreviously", context);
     }
 
@@ -39,9 +43,14 @@ public class MailContentBuilder {
                                              final RecurringTemplate recurringTemplate) {
         Context context = new Context();
         context.setVariable("recipient", recipient);
-        context.setVariable("items", itemRepository.getRecurringItemsByTemplateId(recurringTemplate.getId()));
+        final List<RecurringItem> items = itemRepository.getRecurringItemsByTemplateId
+                (recurringTemplate.getId());
+        context.setVariable("items", items);
         context.setVariable("user", user);
-        context.setVariable("orderTotal", 123);
+        context.setVariable("orderTotal",
+                items.stream().mapToDouble(i -> i.getProduct().getPrice().doubleValue() * i.getQuantity()).sum());
+        context.setVariable("host", NetworkUtil.getHostname());
+        context.setVariable("port", NetworkUtil.getPort());
         return templateEngine.process("recurringOrderIsReady", context);
     }
 }

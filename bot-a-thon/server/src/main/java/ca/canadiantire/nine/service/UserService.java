@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ca.canadiantire.nine.dao.UserRepository;
+import ca.canadiantire.nine.domain.User;
+import ca.canadiantire.nine.exception.UserNotFoundException;
 
 /**
  * @author Victor Letunovsky
@@ -15,7 +17,11 @@ public class UserService {
     private UserRepository userRepository;
 
     public Long getUserIdByEmail(String email) {
-        return userRepository.getUserByEmail(email).getId();
+        User user = userRepository.getUserByEmail(email);
+        if (user == null) {
+            throw new UserNotFoundException(email);
+        }
+        return user.getId();
     }
 
 }
