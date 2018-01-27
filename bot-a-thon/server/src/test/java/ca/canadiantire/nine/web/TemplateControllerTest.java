@@ -21,28 +21,34 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 public class TemplateControllerTest extends AbstractControllerTest {
 
+    private static final String CREATE_TEMPLATE_MOBILE = "/template/phoneOrder";
+    private static final String CREATE_TEMPLATE_WEB = "/template/webOrder";
     private static ObjectMapper MAPPER = new ObjectMapper();
-    private static final String CREATE_TEMPLATE = "/template/phoneOrder";
 
     @Test
     public void testPutTemplateFromPhone() throws Exception {
 
-        RequestBuilder requestBuilder = MockMvcRequestBuilders.put(CREATE_TEMPLATE)
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.put(CREATE_TEMPLATE_MOBILE)
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(MAPPER.writeValueAsBytes(createPhoneOrder()));
         mockMvc.perform(requestBuilder).andExpect(status().isOk());
     }
 
+    @Test
+    public void testPutTemplateFromWeb() throws Exception {
+
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.post(CREATE_TEMPLATE_WEB)
+                .accept(MediaType.APPLICATION_JSON_UTF8)
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(MAPPER.writeValueAsBytes(createWebOrder()));
+        mockMvc.perform(requestBuilder).andExpect(status().isOk());
+    }
 
     private ObjectNode createPhoneOrder() {
+        final ObjectNode phoneOrder = createOrderHeader();
 
-        final ObjectNode phoneOrder = MAPPER.createObjectNode();
         final ArrayNode phoneOrderItems = MAPPER.createArrayNode();
-        phoneOrder.put("userId", 12345L);
-        phoneOrder.put("startDate", LocalDate.now().toString());
-        phoneOrder.put("timeUnitAmount", 3);
-        phoneOrder.put("timeUnit", "DAY");
         phoneOrderItems.add(createPhoneOrderItem());
         phoneOrder.set("barCodes", phoneOrderItems);
 
@@ -54,5 +60,31 @@ public class TemplateControllerTest extends AbstractControllerTest {
         phoneOrderItem.put("barCode", "12345");
         phoneOrderItem.put("quantity", 3);
         return phoneOrderItem;
+    }
+
+    private ObjectNode createWebOrder() {
+        final ObjectNode phoneOrder = createOrderHeader();
+
+        final ArrayNode phoneOrderItems = MAPPER.createArrayNode();
+        phoneOrderItems.add(createWebOrderItem());
+        phoneOrder.set("products", phoneOrderItems);
+
+        return phoneOrder;
+    }
+
+    private ObjectNode createWebOrderItem() {
+        final ObjectNode phoneOrderItem = MAPPER.createObjectNode();
+        phoneOrderItem.put("id", "1");
+        phoneOrderItem.put("quantity", 3);
+        return phoneOrderItem;
+    }
+
+    private ObjectNode createOrderHeader() {
+        final ObjectNode order = MAPPER.createObjectNode();
+        order.put("userId", 12345L);
+        order.put("startDate", LocalDate.now().toString());
+        order.put("timeUnitAmount", 3);
+        order.put("timeUnit", "DAY");
+        return order;
     }
 }

@@ -9,17 +9,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import ca.canadiantire.nine.dao.ProductRepository;
 import ca.canadiantire.nine.dao.RecurringItemRepository;
 import ca.canadiantire.nine.domain.RecurringItem;
 import ca.canadiantire.nine.domain.RecurringTemplate;
-import ca.canadiantire.nine.dto.PhoneTemplateDto;
+import ca.canadiantire.nine.dto.WebTemplateDto;
 
-@Service
-public class PhoneTemplateToRecurringTemplateConverter
-        extends AbstractTemplateToRecurringTemplateConverter<PhoneTemplateDto> {
+@Component
+public class WebTemplateToRecurringTemplateConverter
+        extends AbstractTemplateToRecurringTemplateConverter<WebTemplateDto> {
 
     @Autowired
     private RecurringItemRepository recurringItemRepository;
@@ -28,19 +28,19 @@ public class PhoneTemplateToRecurringTemplateConverter
     private ProductRepository productRepository;
 
     @Override
-    protected void convertItems(final PhoneTemplateDto templateDto, final RecurringTemplate template) {
-        final List<RecurringItem> items = templateDto.getBarCodes().stream()
+    protected void convertItems(final WebTemplateDto templateDto, final RecurringTemplate template) {
+        final List<RecurringItem> items = templateDto.getProducts().stream()
                 .map(item -> convertItem(template, item))
                 .collect(Collectors.toList());
         recurringItemRepository.save(items);
     }
 
     private RecurringItem convertItem(final RecurringTemplate template,
-                                      final PhoneTemplateDto.PhoneTemplateItem phoneTemplateItem) {
+                                      final WebTemplateDto.WebTemplateItem webTemplateItem) {
         RecurringItem recurringItem = new RecurringItem();
         recurringItem.setTemplate(template);
-        recurringItem.setProduct(productRepository.getProductByBarCode(phoneTemplateItem.getBarCode()));
-        recurringItem.setQuantity(phoneTemplateItem.getQuantity());
+        recurringItem.setProduct(productRepository.findOne(Long.valueOf(webTemplateItem.getId())));
+        recurringItem.setQuantity(webTemplateItem.getQuantity());
         return recurringItem;
     }
 }

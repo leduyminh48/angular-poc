@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import ca.canadiantire.nine.converter.PhoneTemplateToRecurringTemplateConverter;
+import ca.canadiantire.nine.converter.WebTemplateToRecurringTemplateConverter;
 import ca.canadiantire.nine.dto.PhoneTemplateDto;
+import ca.canadiantire.nine.dto.WebTemplateDto;
 import ca.canadiantire.nine.service.ProductService;
 
 @RestController
@@ -27,11 +29,20 @@ public class TemplateController {
     private ProductService productService;
 
     @Autowired
-    private PhoneTemplateToRecurringTemplateConverter templateConverter;
+    private PhoneTemplateToRecurringTemplateConverter phoneTemplateConverter;
+
+    @Autowired
+    private WebTemplateToRecurringTemplateConverter webTemplateConverter;
 
     @RequestMapping(value = "phoneOrder", method = RequestMethod.PUT, consumes = "application/json;charset=UTF-8")
     @ResponseStatus(value = HttpStatus.OK)
     public void putTemplateFromPhone(@RequestBody @Valid final PhoneTemplateDto phoneTemplateDto) {
-        templateConverter.convertAndSave(phoneTemplateDto);
+        phoneTemplateConverter.convertAndSave(phoneTemplateDto);
+    }
+
+    @RequestMapping(value = "webOrder", method = RequestMethod.POST, consumes = "application/json;charset=UTF-8")
+    @ResponseStatus(value = HttpStatus.OK)
+    public void putTemplateFromWeb(@RequestBody @Valid final WebTemplateDto webTemplateDto) {
+        webTemplateConverter.convertAndSave(webTemplateDto);
     }
 }

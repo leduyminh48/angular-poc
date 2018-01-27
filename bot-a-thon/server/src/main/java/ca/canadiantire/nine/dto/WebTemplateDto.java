@@ -10,30 +10,30 @@ import java.util.Collection;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude
-public class PhoneTemplateDto extends AbstractTemplateDto {
-    
-    private Collection<PhoneTemplateItem> barCodes;
+public class WebTemplateDto extends AbstractTemplateDto {
 
-    public Collection<PhoneTemplateItem> getBarCodes() {
-        return barCodes;
+    private Collection<WebTemplateItem> products;
+
+    public Collection<WebTemplateItem> getProducts() {
+        return products;
     }
 
-    public void setBarCodes(final Collection<PhoneTemplateItem> barCodes) {
-        this.barCodes = barCodes;
+    public void setProducts(final Collection<WebTemplateItem> products) {
+        this.products = products;
     }
 
-    public static class PhoneTemplateItem {
+    public static class WebTemplateItem {
 
-        private String barCode;
+        private String id;
 
         private Integer quantity;
 
-        public String getBarCode() {
-            return barCode;
+        public String getId() {
+            return id;
         }
 
-        public void setBarCode(final String barCode) {
-            this.barCode = barCode;
+        public void setId(final String id) {
+            this.id = id;
         }
 
         public Integer getQuantity() {
