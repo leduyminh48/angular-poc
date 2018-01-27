@@ -1,9 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { CartManagerService } from '../../../shared/services/cart-manager.service';
+import { CartManagerService, IProductWithQuantity } from '../../../shared/services/cart-manager.service';
 import { CredentialService } from '../../../shared/services/credential.service';
 import * as format from 'date-fns/format';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material';
+import { ActivatedRoute, Router } from '@angular/router';
+
+export interface ICartResp {
+  userId?: number,
+  timeUnits: string,
+  timeUnitAmount: number,
+  startDate: string,
+  products: IProductWithQuantity[]
+}
 
 @Component({
   selector: 'ee-cart',
@@ -14,15 +23,36 @@ export class CartComponent implements OnInit {
   timeUnit: string = 'WEEK';
   timeUnitAmount: number = 1;
   startDate = this.getCurrentDate();
+  isLatest = false;
 
   constructor(
     public cartManager: CartManagerService,
     private credentialService: CredentialService,
     private httpClient: HttpClient,
     private snackBar: MatSnackBar,
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
+    this.route.queryParams.subscribe(
+      params => {
+        this.isLatest = params.latest;
+        if (params.latest) {
+          this.getLatestCart();
+        }
+      }
+    )
+  }
+
+  getLatestCart() {
+    return this.httpClient.get<ICartResp>('/template/user')
+      .subscribe(res => {
+        this.timeUnit = res.timeUnits;
+        this.timeUnitAmount = res.timeUnitAmount;
+        this.startDate = res.startDate;
+        this.cartManager.setCart(res.products);
+      })
   }
 
   getTotalForItem(item) {
@@ -40,7 +70,9 @@ export class CartComponent implements OnInit {
   submit() {
     this.httpClient.post<null>('/template/webOrder', this.getData())
       .subscribe(() => {
-        this.snackBar.open('Done, please check your email');
+        this.snackBar.open('Done, please check your email', null, {
+          duration: 3000
+        });
       })
 
   }
@@ -67,6 +99,10 @@ export class CartComponent implements OnInit {
     const date = new Date();
 
     return format(date, 'YYYY-MM-DD');
+  }
+
+  goToProductDetails(id) {
+    this.router.navigate(['/app/products', id]);
   }
 
 }

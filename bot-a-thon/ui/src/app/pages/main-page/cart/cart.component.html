@@ -9,10 +9,15 @@
     <div class="order-frequency">
       <p class="order-frequency-field">Order every:</p>
       <mat-form-field>
-        <input class="order-frequency-field" type="number" matInput [(ngModel)]="timeUnitAmount" [ngModelOptions]="{standalone: true}">
+        <input class="order-frequency-field"
+               type="number"
+               matInput
+               [disabled]="isLatest"
+               [(ngModel)]="timeUnitAmount"
+               [ngModelOptions]="{standalone: true}">
       </mat-form-field>
       <mat-form-field>
-        <mat-select class="order-frequency-field" [(ngModel)]="timeUnit" [ngModelOptions]="{standalone: true}">
+        <mat-select [disabled]="isLatest" class="order-frequency-field" [(ngModel)]="timeUnit" [ngModelOptions]="{standalone: true}">
           <mat-option [value]="'DAY'">DAY</mat-option>
           <mat-option [value]="'WEEK'">WEEK</mat-option>
           <mat-option [value]="'MONTH'">MONTH</mat-option>
@@ -23,12 +28,20 @@
     <div class="start-from">
       Starts from:
       <mat-form-field>
-        <input type="date" matInput [(ngModel)]="startDate" [ngModelOptions]="{standalone: true}">
+        <input type="date"
+               matInput
+               [disabled]="isLatest"
+               [(ngModel)]="startDate"
+               [ngModelOptions]="{standalone: true}">
       </mat-form-field>
     </div>
   </form>
-  <button mat-raised-button color="accent" (click)="submit()">SUBMIT RECURRING ORDER</button>
-  <div>
+  <button mat-raised-button color="accent"
+          *ngIf="!isLatest"
+          (click)="submit()">
+    SUBMIT RECURRING ORDER
+  </button>
+  <div *ngIf="!isLatest">
     <p>* Add 3 or more items to get 8% more CTM bonus on your next recurring order</p>
     <p>* Add 5 or more items to get 10% more CTM bonus on your next recurring order</p>
     <p>* Add 10 or more items to get 15% more CTM bonus on your next recurring order </p>
@@ -37,7 +50,7 @@
 
 <div class="products-wrapper">
   <mat-card *ngFor="let cartItem of cartManager.getCart()" class="product">
-    <div class="product-wrapper">
+    <div class="product-wrapper" (click)="goToProductDetails(cartItem.product.id)">
       <img [src]="'http://ecsc00a00eec.epam.com:8080/' + cartItem.product.imageUri"
            [alt]="cartItem.product.name"
            class="product-image"/>
@@ -92,4 +105,4 @@
   </div>
 </div>
 
-<ee-popular-products></ee-popular-products>
+<ee-popular-products *ngIf="!isLatest"></ee-popular-products>
