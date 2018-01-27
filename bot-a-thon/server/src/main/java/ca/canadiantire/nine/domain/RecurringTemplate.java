@@ -5,12 +5,15 @@ package ca.canadiantire.nine.domain;
  * Copyright (c) 2018. Canadian Tire Corporation, Ltd. All rights reserved.
  */
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import ca.canadiantire.nine.enums.TimeUnits;
 
@@ -36,13 +39,20 @@ public class RecurringTemplate {
 
     private TimeUnits timeUnit;
 
-    private Integer discount;
+    private BigDecimal amount;
+
+    private BigDecimal discount;
+
+    @OneToMany
+    private Collection<RecurringItem> recurringItems;
 
     public RecurringTemplate() {
     }
 
     public RecurringTemplate(final User user, final String name, final Boolean active, final LocalDate startDate,
-            final LocalDate endDate, final Integer timeUnitAmount, final TimeUnits timeUnit, Integer discount) {
+                             final LocalDate endDate, final Integer timeUnitAmount, final TimeUnits timeUnit, final
+                             BigDecimal amount, final BigDecimal discount, final Collection<RecurringItem>
+                                     recurringItems) {
         this.user = user;
         this.name = name;
         this.active = active;
@@ -50,7 +60,9 @@ public class RecurringTemplate {
         this.endDate = endDate;
         this.timeUnitAmount = timeUnitAmount;
         this.timeUnit = timeUnit;
+        this.amount = amount;
         this.discount = discount;
+        this.recurringItems = recurringItems;
     }
 
     public Long getId() {
@@ -117,11 +129,27 @@ public class RecurringTemplate {
         this.timeUnit = timeUnit;
     }
 
-    public Integer getDiscount() {
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public void setAmount(final BigDecimal amount) {
+        this.amount = amount;
+    }
+
+    public BigDecimal getDiscount() {
         return discount;
     }
 
-    public void setDiscount(final Integer discount) {
+    public void setDiscount(final BigDecimal discount) {
         this.discount = discount;
+    }
+
+    public Collection<RecurringItem> getRecurringItems() {
+        return recurringItems;
+    }
+
+    public void setRecurringItems(final Collection<RecurringItem> recurringItems) {
+        this.recurringItems = recurringItems;
     }
 }
