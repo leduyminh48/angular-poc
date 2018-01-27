@@ -36,10 +36,24 @@
   border: 1px solid #ccc;
   font-size: 1.5rem;
   border-radius: 0.3rem;
-  margin-right: 5rem;
+  margin-right: 2rem;
 
 }
 
 mat-icon {
   font-size: 3rem;
+
+  &:last-child {
+    margin-left: 1rem;
+  }
+}
+
+::ng-deep .mat-menu-content {
+  padding: 1.5rem;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }

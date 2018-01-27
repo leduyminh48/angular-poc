@@ -20,7 +20,7 @@ export class BaseUrlInterceptor implements HttpInterceptor {
     }
 
     const cloneReq = req.clone({
-      url: ` http://ecsc00a00eec.epam.com${req.url}`,
+      url: `http://ecsc00a00eec.epam.com:8080${req.url}`,
     });
 
     return next.handle(cloneReq);

@@ -1,6 +1,6 @@
 <div *ngIf="product$ | async; let product;" class="product-wrapper">
   <div class="category-name">
-    < {{ product.category.name }}
+    <a [routerLink]="['/app/products']" [queryParams]="{ category: product.category.id }">< {{ product.category.name }}</a>
   </div>
   <div class="product-header">
     <h2>{{ product.name }}</h2>
@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="product-image-wrapper">
-    <img [src]="'http://ecsc00a00eec.epam.com/' + product.imageUri"
+    <img [src]="'http://ecsc00a00eec.epam.com:8080/' + product.imageUri"
          [alt]="product.name"
          height="300px"
          class="product-image">
@@ -47,7 +47,7 @@
         ADD TO CART
       </button>
 
-      <button class="" mat-raised-button color="accent">
+      <button class="" mat-raised-button color="accent" (click)="addToCart(product)">
         <mat-icon>add</mat-icon>
         ADD TO RECURRING CART
       </button>
