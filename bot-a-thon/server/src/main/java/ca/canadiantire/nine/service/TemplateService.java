@@ -40,13 +40,13 @@ public class TemplateService {
 
     private BigDecimal getDiscountPercent(final int size) {
         if (size >= 3 && size < 5) {
-            return new BigDecimal("1.08");
+            return new BigDecimal("0.08");
         } else if (size >= 5 && size < 10) {
-            return new BigDecimal("1.10");
+            return new BigDecimal("0.10");
         } else if (size >= 10) {
-            return new BigDecimal("1.15");
+            return new BigDecimal("0.15");
         } else {
-            return new BigDecimal("1");
+            return new BigDecimal("0");
         }
     }
 
