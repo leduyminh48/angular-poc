@@ -15,4 +15,5 @@ public interface RecurringItemRepository extends CrudRepository<RecurringItem, L
 
     List<RecurringItem> getRecurringItemsByTemplateId(Long recurringTemplateId);
 
+    List<RecurringItem> getAllRecurringItems();
 }
