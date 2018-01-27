@@ -36,19 +36,19 @@ INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (4, '
 INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (4, 'Tea', 0.70, 'tea.jpg', '1234567885');
 INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (5, 'Laundry detergent', 7.35, 'laundry_detergent.jpg', '1234567886');
 INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (5, 'Bounce', 3.50, 'bounce.jpg', '1234567887');
-INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (6, 'Pet food', 4.20, null, '1234567888');
-INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (6, 'Pet shampoo', 7.10, null, '1234567889');
-INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (7, 'Paper towel', 1.82, null, '1234567870');
-INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (7, 'Tissue paper', 1.70, null, '1234567871');
+INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (6, 'Pet food', 4.20, 'pet_food.jpg', '1234567888');
+INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (6, 'Pet shampoo', 7.10, 'pet_shampoo.jpg', '1234567889');
+INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (7, 'Paper towel', 1.82, 'paper_towel.jpg', '1234567870');
+INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (7, 'Tissue paper', 1.70, 'tissue_paper.jpg', '1234567871');
 INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (7, 'Napkins', 0.80, 'napkins.jpg', '1234567872');
 INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (7, 'Hand sanitizer', 2.20, 'hand_sanitizer.jpg', '1234567873');
 INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (7, 'Dishwasher pods', 3.20, 'dishwasher_pods.jpg', '1234567874');
 INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (7, 'Dish soap', 1.10, 'dish_soap.jpg', '1234567875');
-INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (7, 'Soda stream refills', 4.50, null, '1234567876');
+INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (7, 'Soda stream refills', 4.50, 'sodastream_refills.jpg', '1234567876');
 INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (7, 'Brita filters', 3.47, 'brita_filters.jpg', '1234567877');
 INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (7, 'Baking soda', 4.50, 'baking_soda.jpg', '1234567878');
 INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (8, 'Cleaning products', 1.80, 'cleaning_products.jpg', '1234567879');
-INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (8, 'Swiffer products', 1.70, null, '1234567860');
+INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (8, 'Swiffer products', 1.70, 'swiffer_products.jpg', '1234567860');
 
 INSERT INTO recurring_template (user_id, name) VALUES(1, 'test');
 
