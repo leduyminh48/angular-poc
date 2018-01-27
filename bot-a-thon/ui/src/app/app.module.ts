@@ -28,6 +28,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BaseUrlInterceptor } from './core/interceptors/base-url.interceptor';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { InterceptorsModule } from './core/interceptors/interceptors.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
