@@ -1,3 +1,8 @@
+:host {
+  z-index: 999999;
+  background: #fafafa;
+}
+
 .ee-navbar {
   height: 9rem;
   padding: 1rem;
@@ -56,4 +61,16 @@ mat-icon {
     flex-direction: column;
     justify-content: center;
   }
+}
+
+.cart-indicator {
+  color: white;
+  text-align: center;
+  display: block;
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: forestgreen;
+  transform: translate(2rem, -5rem);
 }

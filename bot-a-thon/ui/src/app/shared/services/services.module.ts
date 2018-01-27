@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { CredentialService } from './credential.service';
 import { AuthApiService } from './auth-api.service';
 import { CartManagerService } from './cart-manager.service';
-import { CartComponent } from '../../pages/main-page/products/cart/cart.component';
+import { CartPopupComponent } from '../../pages/main-page/products/cart-popup/cart-popup.component';
 import { AngularMaterialModule } from '../components/angular-material/angular-material.module';
+import { PopularProductsModule } from '../components/popular-products';
 
 @NgModule({
-  imports: [AngularMaterialModule],
-  declarations: [CartComponent],
+  imports: [AngularMaterialModule, PopularProductsModule],
+  declarations: [CartPopupComponent],
   providers: [CredentialService, AuthApiService, CartManagerService],
-  entryComponents: [CartComponent]
+  entryComponents: [CartPopupComponent]
 })
 export class ServicesModule {}

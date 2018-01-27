@@ -1,0 +1,95 @@
+<h2 class="title">Shopping Cart</h2>
+
+<div class="summary">
+  <div class="summary-info">
+    <p>ITEMS: {{ cartManager.getLength() }}</p>
+    <p>TOTAL: ${{ cartManager.getTotal().toLocaleString() }}</p>
+  </div>
+  <form>
+    <div class="order-frequency">
+      <p class="order-frequency-field">Order every:</p>
+      <mat-form-field>
+        <input class="order-frequency-field" type="number" matInput [(ngModel)]="timeUnitAmount" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select class="order-frequency-field" [(ngModel)]="timeUnit" [ngModelOptions]="{standalone: true}">
+          <mat-option [value]="'DAY'">DAY</mat-option>
+          <mat-option [value]="'WEEK'">WEEK</mat-option>
+          <mat-option [value]="'MONTH'">MONTH</mat-option>
+          <mat-option [value]="'YEAR'">YEAR</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="start-from">
+      Starts from:
+      <mat-form-field>
+        <input type="date" matInput [(ngModel)]="startDate" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+    </div>
+  </form>
+  <button mat-raised-button color="accent" (click)="submit()">SUBMIT RECURRING ORDER</button>
+  <div>
+    <p>* Add 3 or more items to get 8% more CTM bonus on your next recurring order</p>
+    <p>* Add 5 or more items to get 10% more CTM bonus on your next recurring order</p>
+    <p>* Add 10 or more items to get 15% more CTM bonus on your next recurring order </p>
+  </div>
+</div>
+
+<div class="products-wrapper">
+  <mat-card *ngFor="let cartItem of cartManager.getCart()" class="product">
+    <div class="product-wrapper">
+      <img [src]="'http://ecsc00a00eec.epam.com:8080/' + cartItem.product.imageUri"
+           [alt]="cartItem.product.name"
+           class="product-image"/>
+      <div class="product-info">
+        <p><strong>{{ cartItem.product.name }}</strong></p>
+        <p>Product #142-2892-2</p>
+
+        <p><em>Price: <strong>${{ cartItem.product.price }}</strong></em></p>
+      </div>
+    </div>
+    <div class="action-wrapper">
+      <div>
+        <p>QTY:</p>
+        <div class="quantity-select">
+          <button mat-icon-button color="primary" (click)="removeQuantity(cartItem)">
+            <mat-icon>remove</mat-icon>
+          </button>
+          <span>{{ cartItem.quantity }}</span>
+          <button mat-icon-button color="accent" (click)="addQuantity(cartItem)">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div>
+        <p>TOTAL:</p>
+        <strong>${{ getTotalForItem(cartItem).toFixed(2) }}</strong>
+      </div>
+    </div>
+  </mat-card>
+</div>
+
+<div class="order-summary">
+  <div class="summary-title">
+    <mat-icon>shopping_cart</mat-icon>
+    <h4>ORDER SUMMARY</h4>
+  </div>
+  <div class="summary-item">
+    <p>Subtotal: </p>
+    <p>${{ (cartManager.getTotal() - 6.09).toLocaleString() }}</p>
+  </div>
+  <div class="summary-item">
+    <p>In Store Pick Up: </p>
+    <p class="green"><strong>FREE</strong></p>
+  </div>
+  <div class="summary-item">
+    <p>HST: </p>
+    <p>$6.09</p>
+  </div>
+  <div class="summary-item">
+    <p>TOTAL: </p>
+    <p>${{ (cartManager.getTotal()).toLocaleString() }}</p>
+  </div>
+</div>
+
+<ee-popular-products></ee-popular-products>
