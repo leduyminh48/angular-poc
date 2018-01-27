@@ -1,5 +1,6 @@
 package ca.canadiantire.nine.dto;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 
 import ca.canadiantire.nine.domain.Product;
@@ -22,7 +23,7 @@ public class WebProductTemplateDto {
 
     private TimeUnits timeUnits;
 
-    private Integer discount;
+    private BigDecimal discount;
 
     private Collection<WebProductTemplateItem> products;
 
@@ -74,20 +75,20 @@ public class WebProductTemplateDto {
         this.timeUnits = timeUnits;
     }
 
-    public Integer getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(final Integer discount) {
-        this.discount = discount;
-    }
-
     public Collection<WebProductTemplateItem> getProducts() {
         return products;
     }
 
     public void setProducts(final Collection<WebProductTemplateItem> products) {
         this.products = products;
+    }
+
+    public BigDecimal getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(final BigDecimal discount) {
+        this.discount = discount;
     }
 
     public static class WebProductTemplateItem {
