@@ -47,7 +47,7 @@ public class TemplateController {
     }
 
     @RequestMapping(value = "webOrder", method = RequestMethod.POST, consumes = "application/json;charset=UTF-8")
-    @ResponseStatus(value = HttpStatus.OK)
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void putTemplateFromWeb(@RequestBody @Valid final WebTemplateDto webTemplateDto) {
         webTemplateConverter.convertAndSave(webTemplateDto);
     }

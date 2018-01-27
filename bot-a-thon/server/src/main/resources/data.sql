@@ -50,6 +50,11 @@ INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (7, '
 INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (8, 'Cleaning products', 1.80, 'cleaning_products.jpg', '1234567879');
 INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (8, 'Swiffer products', 1.70, 'swiffer_products.jpg', '1234567860');
 
+INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (6, 'Friskies with chicken', 0.70, null, '7613033926716');
+INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (8, 'Microfiber cleaning cloths', 1.20, null, '4820164965764');
+INSERT INTO product (category_id, name, price, image_uri, bar_code) VALUES (8, 'Cillit power cleaner', 2.70, null, '5900627003000');
+
+
 INSERT INTO recurring_template (user_id, name) VALUES(1, 'test');
 
 INSERT INTO recurring_item (template_id, product_id, quantity) VALUES(1, 1, 4);
