@@ -9,10 +9,12 @@ package ca.canadiantire.nine.converter;
 import org.assertj.core.util.Lists;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import ca.canadiantire.nine.dao.ProductRepository;
@@ -23,15 +25,17 @@ import ca.canadiantire.nine.domain.Product;
 import ca.canadiantire.nine.domain.RecurringItem;
 import ca.canadiantire.nine.domain.User;
 import ca.canadiantire.nine.dto.PhoneTemplateDto;
+import ca.canadiantire.nine.dto.WebTemplateDto;
 
 import static org.mockito.Matchers.anyCollectionOf;
+import static org.mockito.Matchers.anyLong;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class PhoneTemplateToRecurringTemplateConverterTest {
+public class WebTemplateToRecurringTemplateConverterTest {
 
     @MockBean
     private UserRepository userRepository;
@@ -46,18 +50,18 @@ public class PhoneTemplateToRecurringTemplateConverterTest {
     private ProductRepository productRepository;
 
     @Autowired
-    private PhoneTemplateToRecurringTemplateConverter testingInstance;
+    private WebTemplateToRecurringTemplateConverter testingInstance;
 
     @Test
     public void shouldSaveTemplate() {
-        PhoneTemplateDto templateDto = new PhoneTemplateDto();
+        WebTemplateDto templateDto = new WebTemplateDto();
         templateDto.setUserId(2L);
         templateDto.setTimeUnit("DAY");
         templateDto.setTimeUnitAmount(3);
         templateDto.setStartDate("2018-01-01");
-        templateDto.setBarCodes(Lists.newArrayList(createItem("12345", 3)));
+        templateDto.setProducts(Lists.newArrayList(createItem("1", 3)));
         Product product = mock(Product.class);
-        when(productRepository.getProductByBarCode(anyString())).thenReturn(product);
+        when(productRepository.findOne(anyLong())).thenReturn(product);
         when(userRepository.findOne(2L)).thenReturn(new User());
 
         testingInstance.convertAndSave(templateDto);
@@ -65,10 +69,9 @@ public class PhoneTemplateToRecurringTemplateConverterTest {
         Mockito.verify(recurringItemRepository).save(anyCollectionOf(RecurringItem.class));
     }
 
-    @SuppressWarnings("SameParameterValue")
-    private PhoneTemplateDto.PhoneTemplateItem createItem(final String barCode, final int quantity) {
-        PhoneTemplateDto.PhoneTemplateItem item = new PhoneTemplateDto.PhoneTemplateItem();
-        item.setBarCode(barCode);
+    private WebTemplateDto.WebTemplateItem createItem(final String id, final int quantity) {
+        WebTemplateDto.WebTemplateItem item = new WebTemplateDto.WebTemplateItem();
+        item.setId(id);
         item.setQuantity(quantity);
         return item;
     }

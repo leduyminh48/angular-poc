@@ -11,6 +11,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import ca.canadiantire.nine.dao.CategoryRepository;
 import ca.canadiantire.nine.dao.ProductRepository;
 import ca.canadiantire.nine.dao.RecurringItemRepository;
+import ca.canadiantire.nine.dao.RecurringTemplateRepository;
 import ca.canadiantire.nine.dao.UserRepository;
 
 /**
@@ -31,6 +32,9 @@ public abstract class AbstractControllerTest {
 
     @MockBean
     protected RecurringItemRepository recurringItemRepository;
+
+    @MockBean
+    protected RecurringTemplateRepository templateRepository;
 
     @MockBean
     protected CategoryRepository categoryRepository;
