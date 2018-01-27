@@ -64,6 +64,6 @@ public class MailContentBuilder {
         context.setVariable("store", store);
         context.setVariable("host", NetworkUtil.getHostname());
         context.setVariable("port", NetworkUtil.getPort());
-        return templateEngine.process("recurringOrderIsReady", context);
+        return templateEngine.process("topRecurringProducts", context);
     }
 }

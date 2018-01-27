@@ -1,4 +1,4 @@
-INSERT INTO store (name, email, address) VALUES ('MOUNT PEARL, NL', 'anna_kurmaz@epam.com', '26 Merchant Drive Mount Pearl, NL A1N 5J5');
+INSERT INTO store (name, email, address) VALUES ('MOUNT PEARL, NL', 'viktor_letunovskyi@epam.com', '26 Merchant Drive Mount Pearl, NL A1N 5J5');
 
 INSERT INTO user (name, email, store_id) VALUES ('Anna Kurmaz', 'anna_kurmaz@epam.com', 1);
 INSERT INTO user (name, email, store_id) VALUES ('Duy Minh Le', 'duy_minh_le@epam.com', 1);
