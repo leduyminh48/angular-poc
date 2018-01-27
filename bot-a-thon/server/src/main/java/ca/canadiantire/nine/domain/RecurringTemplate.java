@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Collection;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -39,8 +40,10 @@ public class RecurringTemplate {
 
     private TimeUnits timeUnit;
 
+    @Column (scale = 2)
     private BigDecimal amount;
 
+    @Column(scale = 2)
     private BigDecimal discount;
 
     @OneToMany
