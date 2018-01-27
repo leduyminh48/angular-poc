@@ -6,6 +6,7 @@
 package ca.canadiantire.nine.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ import ca.canadiantire.nine.dao.RecurringItemRepository;
 import ca.canadiantire.nine.domain.Product;
 import ca.canadiantire.nine.domain.RecurringItem;
 import ca.canadiantire.nine.domain.RecurringTemplate;
+import ca.canadiantire.nine.domain.Store;
 import ca.canadiantire.nine.domain.User;
 import ca.canadiantire.nine.util.NetworkUtil;
 
@@ -52,5 +54,16 @@ public class MailContentBuilder {
         context.setVariable("host", NetworkUtil.getHostname());
         context.setVariable("port", NetworkUtil.getPort());
         return templateEngine.process("recurringOrderIsReady", context);
+    }
+
+    public String buildTopProducts(final String recipient, final Store store,
+                                   final List<Map.Entry<Product, Integer>> products) {
+        Context context = new Context();
+        context.setVariable("recipient", recipient);
+        context.setVariable("items", products);
+        context.setVariable("store", store);
+        context.setVariable("host", NetworkUtil.getHostname());
+        context.setVariable("port", NetworkUtil.getPort());
+        return templateEngine.process("topRecurringProducts", context);
     }
 }

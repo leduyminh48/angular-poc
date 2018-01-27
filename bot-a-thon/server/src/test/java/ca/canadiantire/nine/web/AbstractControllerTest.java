@@ -13,6 +13,8 @@ import ca.canadiantire.nine.dao.ProductRepository;
 import ca.canadiantire.nine.dao.RecurringItemRepository;
 import ca.canadiantire.nine.dao.RecurringTemplateRepository;
 import ca.canadiantire.nine.dao.UserRepository;
+import ca.canadiantire.nine.service.TemplateService;
+import ca.canadiantire.nine.service.EmailService;
 
 /**
  * @author Victor Letunovsky
@@ -41,4 +43,10 @@ public abstract class AbstractControllerTest {
 
     @MockBean
     protected JavaMailSender mailSender;
+
+    @MockBean
+    protected TemplateService templateService;
+
+    @MockBean
+    protected EmailService emailService;
 }

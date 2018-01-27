@@ -47,7 +47,7 @@ public class UserController {
         final User user = userRepository.findOne(userId);
         final List<Product> products = new ArrayList<>(productService.getMostPopularProducts());
         emailService.sendRepeatableItemsOrderedNotification(user.getEmail(), user, products);
-
+        emailService.sendTopProductsNotification(user.getStore().getEmail(), user.getStore());
         return userId;
     }
 

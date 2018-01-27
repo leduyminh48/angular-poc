@@ -23,6 +23,7 @@ import ca.canadiantire.nine.domain.Product;
 import ca.canadiantire.nine.domain.RecurringItem;
 import ca.canadiantire.nine.domain.User;
 import ca.canadiantire.nine.dto.PhoneTemplateDto;
+import ca.canadiantire.nine.service.TemplateService;
 
 import static org.mockito.Matchers.anyCollectionOf;
 import static org.mockito.Matchers.anyString;
@@ -44,6 +45,9 @@ public class PhoneTemplateToRecurringTemplateConverterTest {
 
     @MockBean
     private ProductRepository productRepository;
+
+    @MockBean
+    private TemplateService templateService;
 
     @Autowired
     private PhoneTemplateToRecurringTemplateConverter testingInstance;

@@ -32,6 +32,7 @@ public class WebTemplateToRecurringTemplateConverter
         final List<RecurringItem> items = templateDto.getProducts().stream()
                 .map(item -> convertItem(template, item))
                 .collect(Collectors.toList());
+        template.setRecurringItems(items);
         recurringItemRepository.save(items);
     }
 

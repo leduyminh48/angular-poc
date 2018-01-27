@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 import ca.canadiantire.nine.domain.Product;
 import ca.canadiantire.nine.domain.RecurringTemplate;
+import ca.canadiantire.nine.domain.Store;
 import ca.canadiantire.nine.domain.User;
 
 @Service
@@ -31,10 +32,15 @@ public class EmailService {
     @Autowired
     private MailContentBuilder mailContentBuilder;
 
+    @Autowired
+    private ProductService productService;
+
     @Value("${email.subject.repeatableItemsOrderedNotification}")
     private String REPEATABLE_ITEMS_SUBJECT;
     @Value("${email.subject.recurringOrderIsReadyNotification}")
     private String RECURRING_ORDER_READY_SUBJECT;
+    @Value("${email.subject.topProductsNotification}")
+    private String TOP_PRODUCTS_SUBJECT;
     @Value("${email.img.logo}")
     private String LOGO_PATH;
     @Value("${email.img.footer}")
@@ -56,6 +62,12 @@ public class EmailService {
         send(prepareMessage(recipient, RECURRING_ORDER_READY_SUBJECT, content));
     }
 
+    public void sendTopProductsNotification(final String recipient, final Store store) {
+        final String content = mailContentBuilder.buildTopProducts(recipient, store,
+                productService.getTop5Products());
+        send(prepareMessage(recipient, TOP_PRODUCTS_SUBJECT, content));
+    }
+
     public MimeMessagePreparator prepareMessage(final String recipient, final String subject,
                                                 final String content) {
         return (MimeMessage mimeMessage) -> {
@@ -63,9 +75,9 @@ public class EmailService {
             messageHelper.setTo(recipient);
             messageHelper.setSubject(subject);
             messageHelper.setText(content, true);
-            messageHelper.addAttachment("logo.jpg", new ClassPathResource(LOGO_PATH));
-            messageHelper.addAttachment("footer.jpg", new ClassPathResource(FOOTER_PATH));
-            messageHelper.addAttachment("banner.jpg", new ClassPathResource(BANNER_PATH));
+            //messageHelper.addAttachment("logo.jpg", new ClassPathResource(LOGO_PATH));
+            //messageHelper.addAttachment("footer.jpg", new ClassPathResource(FOOTER_PATH));
+            //messageHelper.addAttachment("banner.jpg", new ClassPathResource(BANNER_PATH));
         };
     }
 

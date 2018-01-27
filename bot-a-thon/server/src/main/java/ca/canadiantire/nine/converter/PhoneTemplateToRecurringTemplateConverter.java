@@ -32,6 +32,7 @@ public class PhoneTemplateToRecurringTemplateConverter
         final List<RecurringItem> items = templateDto.getBarCodes().stream()
                 .map(item -> convertItem(template, item))
                 .collect(Collectors.toList());
+        template.setRecurringItems(items);
         recurringItemRepository.save(items);
     }
 
