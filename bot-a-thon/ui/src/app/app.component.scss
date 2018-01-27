@@ -7,3 +7,18 @@
   left: 0;
   right: 0;
 }
+
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
+.wrapper {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.scroll {
+  height: calc(100vh - 14.7rem);
+  overflow-y: auto;
+}

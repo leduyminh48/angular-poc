@@ -9,7 +9,7 @@ export class AuthApiService {
   constructor(private http: HttpClient, private credentialService: CredentialService) { }
 
   login({ username, password }): Observable<number> {
-    return Observable.of(123)
+    return this.http.post<number>('/user/login', { username, password })
       .do(id => {
         this.credentialService.userId = id;
       });

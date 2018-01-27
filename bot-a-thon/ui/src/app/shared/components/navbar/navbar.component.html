@@ -15,7 +15,10 @@
            placeholder="What are you looking for today?">
   </form>
   <mat-icon [matMenuTriggerFor]="menuLogin">person</mat-icon>
-  <mat-icon>shopping_cart</mat-icon>
+  <a [routerLink]="['/app/cart']">
+    <mat-icon>shopping_cart</mat-icon>
+    <span class="cart-indicator">{{ cartLength }}</span>
+  </a>
 </div>
 <mat-menu #menuLogin="matMenu" [yPosition]="'below'" [overlapTrigger]="false" class="login-form">
   <form (click)="$event.stopPropagation()">
