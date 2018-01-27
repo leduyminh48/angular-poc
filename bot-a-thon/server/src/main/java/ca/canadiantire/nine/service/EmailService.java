@@ -75,9 +75,9 @@ public class EmailService {
             messageHelper.setTo(recipient);
             messageHelper.setSubject(subject);
             messageHelper.setText(content, true);
-            messageHelper.addAttachment("logo.jpg", new ClassPathResource(LOGO_PATH));
-            messageHelper.addAttachment("footer.jpg", new ClassPathResource(FOOTER_PATH));
-            messageHelper.addAttachment("banner.jpg", new ClassPathResource(BANNER_PATH));
+            //messageHelper.addAttachment("logo.jpg", new ClassPathResource(LOGO_PATH));
+            //messageHelper.addAttachment("footer.jpg", new ClassPathResource(FOOTER_PATH));
+            //messageHelper.addAttachment("banner.jpg", new ClassPathResource(BANNER_PATH));
         };
     }
 
