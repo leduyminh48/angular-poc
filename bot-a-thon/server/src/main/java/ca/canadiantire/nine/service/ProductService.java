@@ -45,7 +45,7 @@ public class ProductService {
     }
 
     public List<Map.Entry<Product, Integer>> getTop5Products() {
-        List<RecurringItem> recurringItems = itemRepository.getAllRecurringItems();
+        Iterable<RecurringItem> recurringItems = itemRepository.findAll();
         Map<Product, Integer> groupRecurringItems = new HashMap<>();
         for (RecurringItem recurringItem : recurringItems) {
             Product product = recurringItem.getProduct();
@@ -56,6 +56,6 @@ public class ProductService {
 
         List<Map.Entry<Product, Integer>> entries = new ArrayList<>(groupRecurringItems.entrySet());
         entries.sort((o1, o2) -> Integer.compare(o2.getValue(), o1.getValue()));
-        return entries.subList(0, 5);
+        return entries.subList(0, Math.min(entries.size(), 5));
     }
 }
